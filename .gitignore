@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.mplconfig/
+figures/
+fig_*.pdf
+.DS_Store

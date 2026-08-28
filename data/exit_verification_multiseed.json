@@ -1,0 +1,293 @@
+{
+  "settings": {
+    "r": 0.5,
+    "N": 60,
+    "c": 0.36,
+    "dV_for_horizon": 0.12247715856976549,
+    "replicas_per_seed": 1500,
+    "number_of_seeds": 5,
+    "full_horizon": 7381.809905926796
+  },
+  "summary": {
+    "between_seed_sd_log_mean": 0.023605622158510763,
+    "nominal_sd_log_mean": 0.025819888974716113,
+    "cv_range": [
+      0.9575558116018408,
+      1.0227636887711329
+    ],
+    "median_over_mean_range": [
+      0.6672513802143901,
+      0.7288287353254427
+    ],
+    "censoring_ranges": [
+      {
+        "multiplier": 0.15,
+        "exit_fraction_range": [
+          0.38333333333333336,
+          0.418
+        ],
+        "estimate_ratio_range": [
+          0.9706628676263453,
+          1.0725396601123656
+        ]
+      },
+      {
+        "multiplier": 0.3,
+        "exit_fraction_range": [
+          0.64,
+          0.664
+        ],
+        "estimate_ratio_range": [
+          0.9900414751375606,
+          1.0200421294362594
+        ]
+      },
+      {
+        "multiplier": 0.6,
+        "exit_fraction_range": [
+          0.858,
+          0.8873333333333333
+        ],
+        "estimate_ratio_range": [
+          0.9952392805297943,
+          1.018199894975603
+        ]
+      },
+      {
+        "multiplier": 1.0,
+        "exit_fraction_range": [
+          0.964,
+          0.974
+        ],
+        "estimate_ratio_range": [
+          0.9924428367497115,
+          1.0014886090278288
+        ]
+      },
+      {
+        "multiplier": 1.5,
+        "exit_fraction_range": [
+          0.9933333333333333,
+          0.9953333333333333
+        ],
+        "estimate_ratio_range": [
+          0.9953898341049849,
+          1.0015864216719994
+        ]
+      },
+      {
+        "multiplier": 3.0,
+        "exit_fraction_range": [
+          1.0,
+          1.0
+        ],
+        "estimate_ratio_range": [
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "rows": [
+    {
+      "seed": 6100,
+      "mean": 464.0847828516953,
+      "log_mean": 6.140067257197821,
+      "cv": 0.9925425726479615,
+      "median_over_mean": 0.7005390314338978,
+      "steps": 1762832,
+      "censoring": [
+        {
+          "multiplier": 0.15,
+          "exit_fraction": 0.396,
+          "estimate_over_full_mean": 1.0023241201270094
+        },
+        {
+          "multiplier": 0.3,
+          "exit_fraction": 0.64,
+          "estimate_over_full_mean": 0.9900414751375606
+        },
+        {
+          "multiplier": 0.6,
+          "exit_fraction": 0.858,
+          "estimate_over_full_mean": 1.0075938833873883
+        },
+        {
+          "multiplier": 1.0,
+          "exit_fraction": 0.968,
+          "estimate_over_full_mean": 1.000253583028857
+        },
+        {
+          "multiplier": 1.5,
+          "exit_fraction": 0.9953333333333333,
+          "estimate_over_full_mean": 0.9992437014525531
+        },
+        {
+          "multiplier": 3.0,
+          "exit_fraction": 1.0,
+          "estimate_over_full_mean": 1.0
+        }
+      ]
+    },
+    {
+      "seed": 6101,
+      "mean": 445.321773384633,
+      "log_mean": 6.0987971071229286,
+      "cv": 1.0141895431529775,
+      "median_over_mean": 0.6672513802143901,
+      "steps": 1598430,
+      "censoring": [
+        {
+          "multiplier": 0.15,
+          "exit_fraction": 0.418,
+          "estimate_over_full_mean": 0.9706628676263453
+        },
+        {
+          "multiplier": 0.3,
+          "exit_fraction": 0.6486666666666666,
+          "estimate_over_full_mean": 0.9931233688684017
+        },
+        {
+          "multiplier": 0.6,
+          "exit_fraction": 0.874,
+          "estimate_over_full_mean": 0.9971575322510171
+        },
+        {
+          "multiplier": 1.0,
+          "exit_fraction": 0.964,
+          "estimate_over_full_mean": 1.0014886090278288
+        },
+        {
+          "multiplier": 1.5,
+          "exit_fraction": 0.994,
+          "estimate_over_full_mean": 1.0015864216719994
+        },
+        {
+          "multiplier": 3.0,
+          "exit_fraction": 1.0,
+          "estimate_over_full_mean": 1.0
+        }
+      ]
+    },
+    {
+      "seed": 6102,
+      "mean": 451.47060413530704,
+      "log_mean": 6.112510263617451,
+      "cv": 0.9575558116018408,
+      "median_over_mean": 0.7288287353254427,
+      "steps": 1871745,
+      "censoring": [
+        {
+          "multiplier": 0.15,
+          "exit_fraction": 0.38333333333333336,
+          "estimate_over_full_mean": 1.0725396601123656
+        },
+        {
+          "multiplier": 0.3,
+          "exit_fraction": 0.6466666666666666,
+          "estimate_over_full_mean": 1.0200421294362594
+        },
+        {
+          "multiplier": 0.6,
+          "exit_fraction": 0.8713333333333333,
+          "estimate_over_full_mean": 1.018199894975603
+        },
+        {
+          "multiplier": 1.0,
+          "exit_fraction": 0.974,
+          "estimate_over_full_mean": 0.9979953579150675
+        },
+        {
+          "multiplier": 1.5,
+          "exit_fraction": 0.9953333333333333,
+          "estimate_over_full_mean": 0.9999669881286083
+        },
+        {
+          "multiplier": 3.0,
+          "exit_fraction": 1.0,
+          "estimate_over_full_mean": 1.0
+        }
+      ]
+    },
+    {
+      "seed": 6103,
+      "mean": 434.89362316621344,
+      "log_mean": 6.075101456737329,
+      "cv": 1.0145935129144252,
+      "median_over_mean": 0.6997735202407994,
+      "steps": 2248714,
+      "censoring": [
+        {
+          "multiplier": 0.15,
+          "exit_fraction": 0.4013333333333333,
+          "estimate_over_full_mean": 1.0490865887000258
+        },
+        {
+          "multiplier": 0.3,
+          "exit_fraction": 0.664,
+          "estimate_over_full_mean": 1.0006499786442506
+        },
+        {
+          "multiplier": 0.6,
+          "exit_fraction": 0.8873333333333333,
+          "estimate_over_full_mean": 0.9970187576811245
+        },
+        {
+          "multiplier": 1.0,
+          "exit_fraction": 0.9733333333333334,
+          "estimate_over_full_mean": 0.9939855227815648
+        },
+        {
+          "multiplier": 1.5,
+          "exit_fraction": 0.994,
+          "estimate_over_full_mean": 0.9953898341049849
+        },
+        {
+          "multiplier": 3.0,
+          "exit_fraction": 1.0,
+          "estimate_over_full_mean": 1.0
+        }
+      ]
+    },
+    {
+      "seed": 6104,
+      "mean": 446.5320989286191,
+      "log_mean": 6.1015112878302755,
+      "cv": 1.0227636887711329,
+      "median_over_mean": 0.6733590347521011,
+      "steps": 1791651,
+      "censoring": [
+        {
+          "multiplier": 0.15,
+          "exit_fraction": 0.416,
+          "estimate_over_full_mean": 0.9839877459548751
+        },
+        {
+          "multiplier": 0.3,
+          "exit_fraction": 0.646,
+          "estimate_over_full_mean": 1.0026294799274886
+        },
+        {
+          "multiplier": 0.6,
+          "exit_fraction": 0.8786666666666667,
+          "estimate_over_full_mean": 0.9952392805297943
+        },
+        {
+          "multiplier": 1.0,
+          "exit_fraction": 0.9686666666666667,
+          "estimate_over_full_mean": 0.9924428367497115
+        },
+        {
+          "multiplier": 1.5,
+          "exit_fraction": 0.9933333333333333,
+          "estimate_over_full_mean": 0.9965112350056428
+        },
+        {
+          "multiplier": 3.0,
+          "exit_fraction": 1.0,
+          "estimate_over_full_mean": 1.0
+        }
+      ]
+    }
+  ]
+}
