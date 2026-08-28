@@ -97,10 +97,9 @@ iterations, over `r` in `{0.5, 1, 2, 4, 8, 16, 32, 64}` and `c` in
 
     python src/ldp_crossover_sweep.py --write   # 40 minimizations, about four minutes
 
-Notice that the iteration budget is not cosmetic. At the default 600 iterations L-BFGS
-stops on the cap and returns `0.128412` at `r = 0.5` instead of `0.122477`, i.e. it
-fails upward by five percent, which looks exactly like a discretisation error and is
-not one.
+Notice that at the default 600 iterations L-BFGS stops on the cap and returns
+`0.128412` at `r = 0.5` instead of `0.122477`, i.e. the budget itself moves the answer
+upward by five percent, which looks exactly like a discretisation error and is not one.
 
 The exit-time route is the expensive one. Each pair `(r, N)` gets its own random stream,
 seeded reproducibly from the triple `(20260812, 100r, N)`:
