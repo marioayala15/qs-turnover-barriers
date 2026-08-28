@@ -27,6 +27,19 @@ OKABE_ITO = (
 )
 BLUE, ORANGE, GREEN, VERMILLION = OKABE_ITO[0], OKABE_ITO[1], OKABE_ITO[2], OKABE_ITO[3]
 
+# Colour is never the only channel separating two series: each also gets its own
+# marker and dash pattern, so the panels stay readable in greyscale and under any
+# colour vision.  Index these in step with OKABE_ITO.
+MARKERS = ("o", "s", "^", "D", "v", "P")
+DASHES = (
+    "-",
+    (0, (4.5, 1.6)),
+    (0, (1.3, 1.3)),
+    (0, (5.0, 1.4, 1.1, 1.4)),
+    (0, (2.8, 1.2)),
+    (0, (6.0, 1.5, 1.0, 1.5)),
+)
+
 matplotlib.rcParams.update(
     {
         "font.size": 8.5,
@@ -90,14 +103,14 @@ def nullcline_figure(cost=0.36):
         return [x * (division(w) - death(x, cost)), rate * (ALPHA * x - KAPPA * w)]
 
     starts = [(0.72, 2.85)]
-    styles = {0.5: VERMILLION, 8.0: BLUE}
-    for rate, tone in styles.items():
+    styles = {0.5: (VERMILLION, DASHES[3]), 8.0: (BLUE, DASHES[0])}
+    for rate, (tone, dash) in styles.items():
         for index, start in enumerate(starts):
             sol = solve_ivp(field, (0.0, 260.0), start, args=(rate,),
                             rtol=1e-9, atol=1e-11, dense_output=True)
             path = sol.y
-            ax.plot(path[0], path[1], color=tone, linewidth=1.2, zorder=3,
-                    label=fr"$r={rate:g}$" if index == 0 else None)
+            ax.plot(path[0], path[1], color=tone, linestyle=dash, linewidth=1.2,
+                    zorder=3, label=fr"$r={rate:g}$" if index == 0 else None)
             # one arrowhead per path, placed a third of the way along by arclength
             step = np.hypot(np.diff(path[0]), np.diff(path[1]))
             arc = np.concatenate([[0.0], np.cumsum(step)])
@@ -201,7 +214,8 @@ def action_figure():
     axes[0].plot(x_grid, 2.0 * x_grid, "--", color="0.45", label=r"$w=\bar w(x)$")
     for index, row in enumerate(path_record["rows"]):
         path = np.asarray(row["path"])
-        axes[0].plot(path[:, 0], path[:, 1], color=colors[index], label=fr"$r={row['r']:g}$")
+        axes[0].plot(path[:, 0], path[:, 1], color=colors[index],
+                     linestyle=DASHES[index], label=fr"$r={row['r']:g}$")
     axes[0].plot(
         path_record["settings"]["x_on"],
         2.0 * path_record["settings"]["x_on"],
@@ -252,8 +266,9 @@ def action_figure():
         axes[2].plot(
             rates,
             plateau,
-            "o-",
             color=colors[index],
+            marker=MARKERS[index],
+            linestyle=DASHES[index],
             markersize=3.2,
         )
         axes[2].text(
@@ -290,21 +305,23 @@ def exit_figure():
         grid = np.linspace(population.min(), population.max(), 200)
         fitted = coefficients[0] * grid + coefficients[1] * np.log(grid) + coefficients[2]
         color = colors[index]
+        marker = MARKERS[index]
         axes[0].errorbar(
             population,
             log_mean,
             yerr=standard_error,
-            fmt="o",
+            fmt=marker,
             markersize=3.3,
             capsize=1.8,
             color=color,
         )
-        axes[0].plot(grid, fitted, color=color, label=fr"$r={rate:g}$")
+        axes[0].plot(grid, fitted, color=color, linestyle=DASHES[index],
+                     label=fr"$r={rate:g}$")
         axes[1].errorbar(
             population,
             residual,
             yerr=standard_error,
-            fmt="o",
+            fmt=marker,
             markersize=3.2,
             capsize=1.8,
             color=color,
