@@ -1,4 +1,7 @@
-"""Figures exposing the numerical evidence used in the proceedings paper."""
+"""Figures exposing the numerical evidence used in the proceedings paper.
+
+The phase portrait fig_nullclines.pdf is drawn by src/basins/fig_nullclines.py.
+"""
 
 from __future__ import annotations
 
@@ -76,76 +79,6 @@ def division(w):
 
 def death(x, cost):
     return D0 + cost + THETA * x
-
-
-def nullcline_figure(cost=0.36):
-    """Both nullclines of the mean-field system and its three equilibria."""
-    fig, ax = plt.subplots(figsize=(3.0, 2.35))
-
-    x_grid = np.linspace(0.0, 1.45, 400)
-    ax.plot(x_grid, ALPHA * x_grid / KAPPA, "--", color="0.55", linewidth=1.1,
-            zorder=1, label=r"$\dot w=0$")
-
-    # b(w) = d(x) inverted for w; real only while B0 < d(x) < B0 + B1.
-    target = death(x_grid, cost)
-    admissible = (target > B0) & (target < B0 + B1)
-    w_branch = ((target[admissible] - B0) / (B0 + B1 - target[admissible])) ** (1.0 / HILL)
-    ax.plot(x_grid[admissible], w_branch, color="0.55", linewidth=1.1,
-            zorder=1, label=r"$\dot x=0$")
-    ax.axvline(0.0, color="0.55", linewidth=1.1, zorder=1)
-
-    # The nullclines carry no r. The flow does, so relaxation paths at
-    # different turnover rates reach the same equilibria by different routes.
-    from scipy.integrate import solve_ivp
-
-    def field(_t, u, rate):
-        x, w = u
-        return [x * (division(w) - death(x, cost)), rate * (ALPHA * x - KAPPA * w)]
-
-    starts = [(0.72, 2.85)]
-    styles = {0.5: (VERMILLION, DASHES[3]), 8.0: (BLUE, DASHES[0])}
-    for rate, (tone, dash) in styles.items():
-        for index, start in enumerate(starts):
-            sol = solve_ivp(field, (0.0, 260.0), start, args=(rate,),
-                            rtol=1e-9, atol=1e-11, dense_output=True)
-            path = sol.y
-            ax.plot(path[0], path[1], color=tone, linestyle=dash, linewidth=1.2,
-                    zorder=3, label=fr"$r={rate:g}$" if index == 0 else None)
-            # one arrowhead per path, placed a third of the way along by arclength
-            step = np.hypot(np.diff(path[0]), np.diff(path[1]))
-            arc = np.concatenate([[0.0], np.cumsum(step)])
-            j = int(np.searchsorted(arc, 0.33 * arc[-1]))
-            j = min(max(j, 1), len(arc) - 2)
-            ax.annotate("", xy=(path[0][j + 1], path[1][j + 1]),
-                        xytext=(path[0][j], path[1][j]), zorder=3,
-                        arrowprops={"arrowstyle": "-|>", "color": tone,
-                                    "lw": 1.2, "mutation_scale": 9})
-    for start in starts:  # shared initial condition, drawn once and neutral
-        ax.plot(*start, "s", color="0.25", markersize=3.2, zorder=4)
-
-    equilibria = [(0.0, 0.0, True), (0.55881, 1.11762, False), (1.29675, 2.59350, True)]
-    for xe, we, stable in equilibria:
-        ax.plot(xe, we, "o", markersize=5.0, zorder=5, color="0.1",
-                markerfacecolor="0.1" if stable else "white")
-
-    ax.annotate(r"$x^\ast$", (0.55881, 1.11762), textcoords="offset points",
-                xytext=(6, -9), fontsize=7.5)
-    ax.annotate(r"$x_{\mathrm{on}}$", (1.29675, 2.59350), textcoords="offset points",
-                xytext=(-19, 3), fontsize=7.5)
-    ax.annotate("extinction", (0.0, 0.0), textcoords="offset points",
-                xytext=(7, 4), fontsize=7.0)
-
-    ax.set_xlim(-0.06, 1.45)
-    ax.set_ylim(-0.12, 3.15)
-    ax.set_xlabel(r"cell density $x$")
-    ax.set_ylabel(r"signal density $w$")
-    ax.legend(loc="lower right", fontsize=7.0, framealpha=0.92)
-
-    fig.tight_layout(pad=0.5)
-    destination = ROOT / "fig_nullclines.pdf"
-    fig.savefig(destination)
-    plt.close(fig)
-    print(f"wrote {destination}")
 
 
 def barrier_landscape_figure(cost=0.36):
@@ -344,6 +277,5 @@ def exit_figure():
 
 if __name__ == "__main__":
     barrier_landscape_figure()
-    nullcline_figure()
     action_figure()
     exit_figure()

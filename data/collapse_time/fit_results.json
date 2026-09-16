@@ -1,0 +1,4873 @@
+{
+ "settings": {
+  "c": 0.36,
+  "x_star": 0.5588112173244356,
+  "w_star": 1.1176224346488712,
+  "x_on": 1.2967495269504326,
+  "w_on": 2.593499053900865,
+  "rect_large": {
+   "a_off": 0.3,
+   "b_off": 0.7,
+   "b_of_b_off": 0.8872268365454399,
+   "d0_plus_c": 1.1600000000000001,
+   "cond1": true,
+   "alphaC_a": 0.6,
+   "kappa_b": 0.7,
+   "cond2": true,
+   "a_below_xstar": true
+  },
+  "rect_small": {
+   "a_off": 0.15,
+   "b_off": 0.35,
+   "b_of_b_off": 0.5295687834434517,
+   "d0_plus_c": 1.1600000000000001,
+   "cond1": true,
+   "alphaC_a": 0.3,
+   "kappa_b": 0.35,
+   "cond2": true,
+   "a_below_xstar": true
+  },
+  "on_box": {
+   "center": [
+    1.2967495269504326,
+    2.593499053900865
+   ],
+   "halfwidths": [
+    0.15,
+    0.3
+   ]
+  },
+  "estimator": "right-censored exponential MLE, event-specific indicators",
+  "regression": "WLS log E = a + b log N + N dV, weights n_exit, se inflated by max(1,chi2_red)^0.5",
+  "bootstrap": "2000 paired resamples of trajectories within each N"
+ },
+ "rates": {
+  "0.5": {
+   "saddle_dV_num": 0.12247715856976549,
+   "Ns": [
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "points": [
+    {
+     "N": 40,
+     "n_rep": 1500,
+     "horizon": 4025.0142267905903,
+     "core_secs": 6.053624153137207,
+     "total_events": 255797595.0,
+     "thr": {
+      "Etau": 65.75292294112256,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 3.9002377211364754e-24,
+      "naive_mean_observed_only": 65.75292294112256
+     },
+     "off": {
+      "Etau": 513.6114807812623,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.5924610530070044,
+      "naive_mean_observed_only": 510.92634787479756
+     },
+     "small": {
+      "Etau": 515.7734145475866,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.6122457057063465,
+      "naive_mean_observed_only": 513.0882816411219
+     },
+     "Eoff_over_Ethr": 7.811234205377726,
+     "Eoff_over_exp_NdV": 3.8281465742107352,
+     "Ethr_over_exp_NdV": 0.49008216545027006,
+     "extinction_before_small_rect": 450,
+     "extinction_before_large_rect": 9,
+     "thr_vs_stored": {
+      "stored_Etau": 63.62628390673033,
+      "stored_n_exit": 1445,
+      "new_Etau_at_stored_horizon": 66.48173234935268,
+      "new_n_exit": 1438,
+      "log_ratio": 0.04390055446322124,
+      "z": 1.1785853834868847
+     },
+     "off_at_stored_horizon": {
+      "Etau": 511.0445812678291,
+      "n_exit": 494,
+      "ratio_to_full": 0.9950022544092497
+     },
+     "attempts": {
+      "total": 10769,
+      "returned_to_on": 9270,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.8608041600891447,
+      "retry_fraction_ci": [
+       0.8541375658486825,
+       0.8672134284887818
+      ],
+      "success_prob": 0.13919583991085524,
+      "success_prob_ci": [
+       0.13278657151121814,
+       0.1458624341513175
+      ],
+      "first_entry_returned_fraction": 0.868,
+      "first_entry_returned_ci": [
+       0.8499260240650977,
+       0.8841938460063248
+      ],
+      "mean_attempts_per_traj": 7.179333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 7.059685669922297,
+     "small_minus_large_mean": 2.1619337663242995,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.3323775653511287,
+       "q25": 0.6323775653511288,
+       "q50": 0.8323775653511287,
+       "q75": 1.082377565351129,
+       "q95": 1.4323775653511286
+      },
+      "mean_w_minus_wstar": 0.8613442320177954,
+      "frac_above_wstar": 0.9993333333333333,
+      "frac_below_wstar_first_entry": 0.0006666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.00011768970416585435,
+       0.0037667619561685853
+      ],
+      "frac_below_wstar_all_attempts": 0.002228619184696815,
+      "X_at_entry_values": [
+       22
+      ],
+      "success_prob_attempts_above_wstar": 0.13792461610051188,
+      "success_prob_attempts_at_or_below_wstar": 0.7083333333333334,
+      "n_attempts_above": 10745,
+      "n_attempts_at_or_below": 24
+     },
+     "lattice": {
+      "threshold_count": 22,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       12,
+       28
+      ],
+      "small_rect_counts": [
+       6,
+       14
+      ],
+      "n_lattice_points_small_rect": 105
+     }
+    },
+    {
+     "N": 50,
+     "n_rep": 1500,
+     "horizon": 13698.687580045731,
+     "core_secs": 24.754798412322998,
+     "total_events": 1060953045.0,
+     "thr": {
+      "Etau": 193.29941338038205,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.5039983729510683e-28,
+      "naive_mean_observed_only": 193.29941338038205
+     },
+     "off": {
+      "Etau": 1670.4905205052373,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.4118163068206805,
+      "naive_mean_observed_only": 1661.351969751371
+     },
+     "small": {
+      "Etau": 1672.7644372369602,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.4164326824278009,
+      "naive_mean_observed_only": 1663.6258864830936
+     },
+     "Eoff_over_Ethr": 8.641984428674812,
+     "Eoff_over_exp_NdV": 3.6583588991515503,
+     "Ethr_over_exp_NdV": 0.4233239401604122,
+     "extinction_before_small_rect": 359,
+     "extinction_before_large_rect": 2,
+     "thr_vs_stored": {
+      "stored_Etau": 186.36636803611253,
+      "stored_n_exit": 1457,
+      "new_Etau_at_stored_horizon": 193.70636215120655,
+      "new_n_exit": 1460,
+      "log_ratio": 0.038628958277824484,
+      "z": 1.0431601442564795
+     },
+     "off_at_stored_horizon": {
+      "Etau": 1757.2374508556234,
+      "n_exit": 489,
+      "ratio_to_full": 1.051929016828033
+     },
+     "attempts": {
+      "total": 12792,
+      "returned_to_on": 11293,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.8828173858661663,
+      "retry_fraction_ci": [
+       0.8771282752392896,
+       0.8882766356811457
+      ],
+      "success_prob": 0.11718261413383364,
+      "success_prob_ci": [
+       0.11172336431885437,
+       0.12287172476071036
+      ],
+      "first_entry_returned_fraction": 0.8953333333333333,
+      "first_entry_returned_ci": [
+       0.8788183382386792,
+       0.9098285511677582
+      ],
+      "mean_attempts_per_traj": 8.528,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 6.753092570631654,
+     "small_minus_large_mean": 2.2739167317223257,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.2823775653511287,
+       "q25": 0.5623775653511287,
+       "q50": 0.7623775653511287,
+       "q75": 0.9823775653511289,
+       "q95": 1.3023775653511287
+      },
+      "mean_w_minus_wstar": 0.7765508986844621,
+      "frac_above_wstar": 0.998,
+      "frac_below_wstar_first_entry": 0.002,
+      "frac_below_wstar_first_entry_ci": [
+       0.0006803961574046876,
+       0.005863910104637805
+      ],
+      "frac_below_wstar_all_attempts": 0.0023452157598499064,
+      "X_at_entry_values": [
+       27
+      ],
+      "success_prob_attempts_above_wstar": 0.115890926187118,
+      "success_prob_attempts_at_or_below_wstar": 0.6666666666666666,
+      "n_attempts_above": 12762,
+      "n_attempts_at_or_below": 30
+     },
+     "lattice": {
+      "threshold_count": 27,
+      "threshold_density": 0.54,
+      "large_rect_counts": [
+       15,
+       35
+      ],
+      "small_rect_counts": [
+       7,
+       17
+      ],
+      "n_lattice_points_small_rect": 144
+     }
+    },
+    {
+     "N": 60,
+     "n_rep": 1500,
+     "horizon": 46621.95730059029,
+     "core_secs": 95.81894326210022,
+     "total_events": 4142774346.0,
+     "thr": {
+      "Etau": 460.69166819795214,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.6808422148585666e-41,
+      "naive_mean_observed_only": 460.69166819795214
+     },
+     "off": {
+      "Etau": 5368.4135829699335,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.25378344893570715,
+      "naive_mean_observed_only": 5368.4135829699335
+     },
+     "small": {
+      "Etau": 5370.642887886883,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.25469995226844794,
+      "naive_mean_observed_only": 5370.642887886883
+     },
+     "Eoff_over_Ethr": 11.652942637250407,
+     "Eoff_over_exp_NdV": 3.45443256383959,
+     "Ethr_over_exp_NdV": 0.2964429390390175,
+     "extinction_before_small_rect": 204,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 434.284830197582,
+      "stored_n_exit": 1494,
+      "new_Etau_at_stored_horizon": 460.82243008837463,
+      "new_n_exit": 1490,
+      "log_ratio": 0.059312174990456754,
+      "z": 1.6199920136951815
+     },
+     "off_at_stored_horizon": {
+      "Etau": 5539.684385455718,
+      "n_exit": 513,
+      "ratio_to_full": 1.0319034291674365
+     },
+     "attempts": {
+      "total": 17678,
+      "returned_to_on": 16178,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.9151487724855752,
+      "retry_fraction_ci": [
+       0.9109501837695068,
+       0.9191669687334315
+      ],
+      "success_prob": 0.08485122751442471,
+      "success_prob_ci": [
+       0.08083303126656842,
+       0.0890498162304932
+      ],
+      "first_entry_returned_fraction": 0.9126666666666666,
+      "first_entry_returned_ci": [
+       0.8973043636615465,
+       0.9259206355670955
+      ],
+      "mean_attempts_per_traj": 11.785333333333334,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 6.9395023871697035,
+     "small_minus_large_mean": 2.2293049169493404,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.26571089868446207,
+       "q25": 0.5657108986844621,
+       "q50": 0.7657108986844621,
+       "q75": 0.9490442320177956,
+       "q95": 1.2490442320177955
+      },
+      "mean_w_minus_wstar": 0.7589331209066844,
+      "frac_above_wstar": 0.9966666666666667,
+      "frac_below_wstar_first_entry": 0.0033333333333333335,
+      "frac_below_wstar_first_entry_ci": [
+       0.001424594508329362,
+       0.007779566355421182
+      ],
+      "frac_below_wstar_all_attempts": 0.0017535920352981106,
+      "X_at_entry_values": [
+       33
+      ],
+      "success_prob_attempts_above_wstar": 0.08364027880092934,
+      "success_prob_attempts_at_or_below_wstar": 0.7741935483870968,
+      "n_attempts_above": 17647,
+      "n_attempts_at_or_below": 31
+     },
+     "lattice": {
+      "threshold_count": 33,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       18,
+       42
+      ],
+      "small_rect_counts": [
+       9,
+       21
+      ],
+      "n_lattice_points_small_rect": 220
+     }
+    },
+    {
+     "N": 70,
+     "n_rep": 1500,
+     "horizon": 158672.638516427,
+     "core_secs": 370.1538026332855,
+     "total_events": 16200816665.0,
+     "thr": {
+      "Etau": 1063.4513284045886,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.3824656682316385e-62,
+      "naive_mean_observed_only": 1063.4513284045886
+     },
+     "off": {
+      "Etau": 17853.473297024713,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.20715795507973175,
+      "naive_mean_observed_only": 17853.473297024713
+     },
+     "small": {
+      "Etau": 17855.809615732484,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.2073989933595303,
+      "naive_mean_observed_only": 17855.809615732484
+     },
+     "Eoff_over_Ethr": 16.788237336455122,
+     "Eoff_over_exp_NdV": 3.375529668622052,
+     "Ethr_over_exp_NdV": 0.20106516252853995,
+     "extinction_before_small_rect": 173,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 1067.4774801683004,
+      "stored_n_exit": 1500,
+      "new_Etau_at_stored_horizon": 1062.3926746418317,
+      "new_n_exit": 1499,
+      "log_ratio": -0.00477476542448136,
+      "z": -0.13074053368180577
+     },
+     "off_at_stored_horizon": {
+      "Etau": 18032.53565445908,
+      "n_exit": 537,
+      "ratio_to_full": 1.0100295530430041
+     },
+     "attempts": {
+      "total": 24882,
+      "returned_to_on": 23382,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.9397154569568362,
+      "retry_fraction_ci": [
+       0.9366895970579892,
+       0.942605560072642
+      ],
+      "success_prob": 0.06028454304316373,
+      "success_prob_ci": [
+       0.057394439927357974,
+       0.06331040294201076
+      ],
+      "first_entry_returned_fraction": 0.9453333333333334,
+      "first_entry_returned_ci": [
+       0.9326498341508206,
+       0.9557416028196689
+      ],
+      "mean_attempts_per_traj": 16.588,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 7.0727431600003365,
+     "small_minus_large_mean": 2.336318707772221,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.2823775653511287,
+       "q25": 0.5538061367797003,
+       "q50": 0.7538061367797002,
+       "q75": 0.9395204224939857,
+       "q95": 1.239520422493986
+      },
+      "mean_w_minus_wstar": 0.7503299463035097,
+      "frac_above_wstar": 0.9993333333333333,
+      "frac_below_wstar_first_entry": 0.0006666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.00011768970416585435,
+       0.0037667619561685853
+      ],
+      "frac_below_wstar_all_attempts": 0.001004742384052729,
+      "X_at_entry_values": [
+       39
+      ],
+      "success_prob_attempts_above_wstar": 0.05970149253731343,
+      "success_prob_attempts_at_or_below_wstar": 0.64,
+      "n_attempts_above": 24857,
+      "n_attempts_at_or_below": 25
+     },
+     "lattice": {
+      "threshold_count": 39,
+      "threshold_density": 0.5571428571428572,
+      "large_rect_counts": [
+       21,
+       49
+      ],
+      "small_rect_counts": [
+       10,
+       24
+      ],
+      "n_lattice_points_small_rect": 275
+     }
+    },
+    {
+     "N": 80,
+     "n_rep": 1500,
+     "horizon": 540024.6508622218,
+     "core_secs": 1360.8629739284515,
+     "total_events": 58963918360.0,
+     "thr": {
+      "Etau": 3386.7904136806255,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 8.466778983048936e-67,
+      "naive_mean_observed_only": 3386.7904136806255
+     },
+     "off": {
+      "Etau": 56548.6441461492,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.10683004092082367,
+      "naive_mean_observed_only": 56548.6441461492
+     },
+     "small": {
+      "Etau": 56550.97399981258,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.10687208054021029,
+      "naive_mean_observed_only": 56550.97399981258
+     },
+     "Eoff_over_Ethr": 16.696824201971932,
+     "Eoff_over_exp_NdV": 3.1414479351560174,
+     "Ethr_over_exp_NdV": 0.1881464341455428,
+     "extinction_before_small_rect": 99,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 3487.9937716901063,
+      "stored_n_exit": 1498,
+      "new_Etau_at_stored_horizon": 3386.0812473130077,
+      "new_n_exit": 1499,
+      "log_ratio": -0.0296534419109997,
+      "z": -0.8116867588936817
+     },
+     "off_at_stored_horizon": {
+      "Etau": 53950.7014586047,
+      "n_exit": 592,
+      "ratio_to_full": 0.9540582674125634
+     },
+     "attempts": {
+      "total": 24946,
+      "returned_to_on": 23446,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.9398701194580293,
+      "retry_fraction_ci": [
+       0.9368517549003063,
+       0.94275302784108
+      ],
+      "success_prob": 0.06012988054197066,
+      "success_prob_ci": [
+       0.05724697215892005,
+       0.06314824509969374
+      ],
+      "first_entry_returned_fraction": 0.9413333333333334,
+      "first_entry_returned_ci": [
+       0.9282751215497671,
+       0.9521367516155983
+      ],
+      "mean_attempts_per_traj": 16.630666666666666,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 6.743845458654265,
+     "small_minus_large_mean": 2.32985366339182,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.25737756535112877,
+       "q25": 0.5073775653511288,
+       "q50": 0.6948775653511288,
+       "q75": 0.894877565351129,
+       "q95": 1.1323775653511288
+      },
+      "mean_w_minus_wstar": 0.7026108986844621,
+      "frac_above_wstar": 1.0,
+      "frac_below_wstar_first_entry": 0.0,
+      "frac_below_wstar_first_entry_ci": [
+       2.168404344971009e-19,
+       0.002554524359480413
+      ],
+      "frac_below_wstar_all_attempts": 0.001362943958951335,
+      "X_at_entry_values": [
+       44
+      ],
+      "success_prob_attempts_above_wstar": 0.059047848426461144,
+      "success_prob_attempts_at_or_below_wstar": 0.8529411764705882,
+      "n_attempts_above": 24912,
+      "n_attempts_at_or_below": 34
+     },
+     "lattice": {
+      "threshold_count": 44,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       24,
+       56
+      ],
+      "small_rect_counts": [
+       12,
+       28
+      ],
+      "n_lattice_points_small_rect": 377
+     }
+    },
+    {
+     "N": 90,
+     "n_rep": 1500,
+     "horizon": 1837913.7466014542,
+     "core_secs": 8779.987792491913,
+     "total_events": 249252122148.0,
+     "thr": {
+      "Etau": 8817.845118154304,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 4.524657007254771e-88,
+      "naive_mean_observed_only": 8817.845118154304
+     },
+     "off": {
+      "Etau": 211760.9956521478,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.25513337951549664,
+      "naive_mean_observed_only": 210534.9024255958
+     },
+     "small": {
+      "Etau": 211763.35444053332,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.2551580459060457,
+      "naive_mean_observed_only": 210537.2612139813
+     },
+     "Eoff_over_Ethr": 24.015050481684156,
+     "Eoff_over_exp_NdV": 3.456544074122987,
+     "Ethr_over_exp_NdV": 0.14393240925140802,
+     "extinction_before_small_rect": 86,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 8321.499744497864,
+      "stored_n_exit": 2224,
+      "new_Etau_at_stored_horizon": 8815.594561258302,
+      "new_n_exit": 1304,
+      "log_ratio": 0.05767976604426749,
+      "z": 1.6537329859875198
+     },
+     "off_at_stored_horizon": {
+      "Etau": 224507.97127870083,
+      "n_exit": 118,
+      "ratio_to_full": 1.0601951062200898
+     },
+     "attempts": {
+      "total": 36732,
+      "returned_to_on": 35233,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.9591908962212784,
+      "retry_fraction_ci": [
+       0.9571190917750332,
+       0.9611666621574424
+      ],
+      "success_prob": 0.04080910377872155,
+      "success_prob_ci": [
+       0.038833337842557616,
+       0.04288090822496682
+      ],
+      "first_entry_returned_fraction": 0.9593333333333334,
+      "first_entry_returned_ci": [
+       0.9481082790961555,
+       0.9682116311922686
+      ],
+      "mean_attempts_per_traj": 24.488,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 7.002463238588091,
+     "small_minus_large_mean": 2.358788385514652,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.2712664542400176,
+       "q25": 0.5268220097955731,
+       "q50": 0.704599787573351,
+       "q75": 0.8823775653511288,
+       "q95": 1.1268220097955732
+      },
+      "mean_w_minus_wstar": 0.7047775653511288,
+      "frac_above_wstar": 0.9986666666666667,
+      "frac_below_wstar_first_entry": 0.0013333333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.0003657166195980251,
+       0.00484866234159044
+      ],
+      "frac_below_wstar_all_attempts": 0.001034520309267124,
+      "X_at_entry_values": [
+       50
+      ],
+      "success_prob_attempts_above_wstar": 0.04008829781435657,
+      "success_prob_attempts_at_or_below_wstar": 0.7368421052631579,
+      "n_attempts_above": 36694,
+      "n_attempts_at_or_below": 38
+     },
+     "lattice": {
+      "threshold_count": 50,
+      "threshold_density": 0.5555555555555556,
+      "large_rect_counts": [
+       27,
+       63
+      ],
+      "small_rect_counts": [
+       13,
+       31
+      ],
+      "n_lattice_points_small_rect": 448
+     }
+    },
+    {
+     "N": 100,
+     "n_rep": 1500,
+     "horizon": 6255134.713856639,
+     "core_secs": 21401.26553630829,
+     "total_events": 909470584742.0,
+     "thr": {
+      "Etau": 28429.40259654475,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 4.1795457494638624e-93,
+      "naive_mean_observed_only": 28429.40259654475
+     },
+     "off": {
+      "Etau": 692806.4677809909,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.17987925679719227,
+      "naive_mean_observed_only": 692806.4677809909
+     },
+     "small": {
+      "Etau": 692808.7565534805,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.17988462219036017,
+      "naive_mean_observed_only": 692808.7565534805
+     },
+     "Eoff_over_Ethr": 24.36936426744307,
+     "Eoff_over_exp_NdV": 3.3227412332763513,
+     "Ethr_over_exp_NdV": 0.13634911427359064,
+     "extinction_before_small_rect": 55,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 28304.149390595467,
+      "stored_n_exit": 2202,
+      "new_Etau_at_stored_horizon": 28308.466203074888,
+      "new_n_exit": 1339,
+      "log_ratio": 0.00015250355216824392,
+      "z": 0.004400641013200543
+     },
+     "off_at_stored_horizon": {
+      "Etau": 756850.290029643,
+      "n_exit": 119,
+      "ratio_to_full": 1.0924411437060912
+     },
+     "attempts": {
+      "total": 36741,
+      "returned_to_on": 35241,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.9591736751857598,
+      "retry_fraction_ci": [
+       0.9571017238317409,
+       0.9611496151534843
+      ],
+      "success_prob": 0.04082632481424022,
+      "success_prob_ci": [
+       0.0388503848465157,
+       0.04289827616825923
+      ],
+      "first_entry_returned_fraction": 0.9606666666666667,
+      "first_entry_returned_ci": [
+       0.9495949015848716,
+       0.9693848633052605
+      ],
+      "mean_attempts_per_traj": 24.494,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 6.884026517234141,
+     "small_minus_large_mean": 2.2887724895917603,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.2718775653511287,
+       "q25": 0.5123775653511287,
+       "q50": 0.6823775653511288,
+       "q75": 0.8723775653511288,
+       "q95": 1.122377565351129
+      },
+      "mean_w_minus_wstar": 0.6907908986844621,
+      "frac_above_wstar": 0.9973333333333333,
+      "frac_below_wstar_first_entry": 0.0026666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.0010374714675854256,
+       0.006836762095311092
+      ],
+      "frac_below_wstar_all_attempts": 0.001252007294303367,
+      "X_at_entry_values": [
+       55
+      ],
+      "success_prob_attempts_above_wstar": 0.040005450333832945,
+      "success_prob_attempts_at_or_below_wstar": 0.6956521739130435,
+      "n_attempts_above": 36695,
+      "n_attempts_at_or_below": 46
+     },
+     "lattice": {
+      "threshold_count": 55,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       30,
+       70
+      ],
+      "small_rect_counts": [
+       15,
+       35
+      ],
+      "n_lattice_points_small_rect": 576
+     }
+    },
+    {
+     "N": 110,
+     "n_rep": 1500,
+     "horizon": 21288654.24770064,
+     "core_secs": 79739.86172246933,
+     "total_events": 3411430390870.0,
+     "thr": {
+      "Etau": 76591.31900565105,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.906626702327974e-118,
+      "naive_mean_observed_only": 76591.31900565105
+     },
+     "off": {
+      "Etau": 2358319.817288407,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.18017574397461067,
+      "naive_mean_observed_only": 2344117.913187206
+     },
+     "small": {
+      "Etau": 2358322.147522369,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.18017735106449312,
+      "naive_mean_observed_only": 2344120.2434211676
+     },
+     "Eoff_over_Ethr": 30.79095448290172,
+     "Eoff_over_exp_NdV": 3.323347436407061,
+     "Ethr_over_exp_NdV": 0.10793258904177598,
+     "extinction_before_small_rect": 27,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 75724.94533277566,
+      "stored_n_exit": 2345,
+      "new_Etau_at_stored_horizon": 76584.16418872494,
+      "new_n_exit": 1403,
+      "log_ratio": 0.011282686550251355,
+      "z": 0.33428199924762836
+     },
+     "off_at_stored_horizon": {
+      "Etau": 2553468.0921716336,
+      "n_exit": 120,
+      "ratio_to_full": 1.0827488593585275
+     },
+     "attempts": {
+      "total": 48138,
+      "returned_to_on": 46639,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.9688603597989115,
+      "retry_fraction_ci": [
+       0.9672708865278069,
+       0.9703750052737233
+      ],
+      "success_prob": 0.031139640201088538,
+      "success_prob_ci": [
+       0.029624994726276728,
+       0.03272911347219319
+      ],
+      "first_entry_returned_fraction": 0.966,
+      "first_entry_returned_ci": [
+       0.9555728243510918,
+       0.9740463589458724
+      ],
+      "mean_attempts_per_traj": 32.092,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 7.064376055777688,
+     "small_minus_large_mean": 2.330233962215166,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.2641957471693106,
+       "q25": 0.509650292623856,
+       "q50": 0.6914684744420379,
+       "q75": 0.8551048380784014,
+       "q95": 1.0737412017147647
+      },
+      "mean_w_minus_wstar": 0.6811412017147651,
+      "frac_above_wstar": 0.998,
+      "frac_below_wstar_first_entry": 0.002,
+      "frac_below_wstar_first_entry_ci": [
+       0.0006803961574046876,
+       0.005863910104637805
+      ],
+      "frac_below_wstar_all_attempts": 0.0008517179774814077,
+      "X_at_entry_values": [
+       61
+      ],
+      "success_prob_attempts_above_wstar": 0.03056323679231553,
+      "success_prob_attempts_at_or_below_wstar": 0.7073170731707317,
+      "n_attempts_above": 48097,
+      "n_attempts_at_or_below": 41
+     },
+     "lattice": {
+      "threshold_count": 61,
+      "threshold_density": 0.5545454545454546,
+      "large_rect_counts": [
+       33,
+       77
+      ],
+      "small_rect_counts": [
+       16,
+       38
+      ],
+      "n_lattice_points_small_rect": 663
+     }
+    }
+   ],
+   "fits": {
+    "thr": {
+     "slope": 0.11908752349232415,
+     "se_nominal": 0.002784782808747097,
+     "se": 0.009710012816732458,
+     "b_logN": -1.3148591213515841,
+     "a": 4.336372644111136,
+     "chi2_red": 12.157854672403781,
+     "dof": 5,
+     "ci95_regression": [
+      0.10005589837152853,
+      0.13811914861311977
+     ],
+     "linear_model": {
+      "slope": 0.10046525358500906,
+      "se": 0.0016780698112690718,
+      "a": 0.12332314563984918,
+      "chi2_red": 17.74028523640349,
+      "dof": 6
+     },
+     "drop_smallest_N": {
+      "slope": 0.1371004159419897,
+      "se_nominal": 0.004313760409784738,
+      "se": 0.011988531389800772,
+      "b_logN": -2.7710352331053487,
+      "a": 9.237203395357522,
+      "chi2_red": 7.723602755754293,
+      "dof": 4
+     },
+     "bootstrap_se": 0.002711580539852917,
+     "ci95_bootstrap": [
+      0.11387616544505734,
+      0.12458763563874516
+     ]
+    },
+    "off": {
+     "slope": 0.1294200878240595,
+     "se_nominal": 0.0027853311533122607,
+     "se": 0.003529998949883923,
+     "b_logN": -0.6197523611552456,
+     "a": 3.358680484376866,
+     "chi2_red": 1.6061846792654233,
+     "dof": 5,
+     "ci95_regression": [
+      0.12250128988228702,
+      0.136338885765832
+     ],
+     "linear_model": {
+      "slope": 0.12064267404303418,
+      "se": 0.0006934820040309285,
+      "a": 1.372866444423011,
+      "chi2_red": 3.028191895397244,
+      "dof": 6
+     },
+     "drop_smallest_N": {
+      "slope": 0.13163556907360063,
+      "se_nominal": 0.004314690132622154,
+      "se": 0.005939125749036177,
+      "b_logN": -0.7988543465930403,
+      "a": 3.961458322253548,
+      "chi2_red": 1.8947233983089322,
+      "dof": 4
+     },
+     "bootstrap_se": 0.0029068573203213143,
+     "ci95_bootstrap": [
+      0.12378884277742302,
+      0.1353607163469788
+     ]
+    },
+    "small": {
+     "slope": 0.12963166066436607,
+     "se_nominal": 0.0027853311533122607,
+     "se": 0.003522460863466669,
+     "b_logN": -0.6378414203236428,
+     "a": 3.4207581896070507,
+     "chi2_red": 1.5993321948153063,
+     "dof": 5,
+     "ci95_regression": [
+      0.1227276373719714,
+      0.13653568395676074
+     ],
+     "linear_model": {
+      "slope": 0.12059805559278318,
+      "se": 0.0007042044000134527,
+      "a": 1.3769830833989256,
+      "chi2_red": 3.12255768629333,
+      "dof": 6
+     },
+     "drop_smallest_N": {
+      "slope": 0.13173723784907632,
+      "se_nominal": 0.004314690132622154,
+      "se": 0.005942836360237568,
+      "b_logN": -0.8080586380736193,
+      "a": 3.9936338405045726,
+      "chi2_red": 1.8970916856376632,
+      "dof": 4
+     },
+     "bootstrap_se": 0.0029029819013964985,
+     "ci95_bootstrap": [
+      0.12400595995855672,
+      0.13556964057803975
+     ]
+    }
+   },
+   "slope_differences": {
+    "off_minus_thr": {
+     "estimate": 0.01033256433173535,
+     "bootstrap_se": 0.0038572399228886086,
+     "ci95_bootstrap": [
+      0.0025864277944019735,
+      0.01772741542490984
+     ],
+     "corr_bootstrap": 0.05862521198771622,
+     "linear_model_estimate": 0.02017742045802512,
+     "linear_model_ci95_bootstrap": [
+      0.01911654274884697,
+      0.021205619481117082
+     ]
+    },
+    "small_minus_off": {
+     "estimate": 0.00021157284030656753,
+     "bootstrap_se": 6.903786276970992e-06,
+     "ci95_bootstrap": [
+      0.00019839330462747483,
+      0.00022617225003686327
+     ],
+     "corr_bootstrap": 0.9999980658183628,
+     "linear_model_estimate": -4.461845025099942e-05,
+     "linear_model_ci95_bootstrap": [
+      -4.6741827812845845e-05,
+      -4.271583429340184e-05
+     ]
+    },
+    "small_minus_thr": {
+     "estimate": 0.010544137172041917,
+     "bootstrap_se": 0.0038544290683539487,
+     "ci95_bootstrap": [
+      0.002812997754496665,
+      0.01793888414926763
+     ],
+     "corr_bootstrap": 0.05865017150954703,
+     "linear_model_estimate": 0.02013280200777412,
+     "linear_model_ci95_bootstrap": [
+      0.019072112764659643,
+      0.02115982432336673
+     ]
+    }
+   },
+   "off_thr_ratio": {
+    "log_ratio_by_N": {
+     "40": 2.0555629802239332,
+     "50": 2.1566322356884946,
+     "60": 2.455558735005459,
+     "70": 2.8206784826394107,
+     "80": 2.815218533791978,
+     "90": 3.178680737204279,
+     "100": 3.193326780610067,
+     "110": 3.4272209612253874
+    },
+    "linear_in_N": {
+     "slope": 0.020177362677817934,
+     "ci95_bootstrap": [
+      0.019116055140533886,
+      0.0212055845857882
+     ],
+     "rss": 0.05795460691199317
+    },
+    "linear_in_logN": {
+     "coef": 1.4097283649342474,
+     "ci95_bootstrap": [
+      1.3363531297592113,
+      1.4809951929682985
+     ],
+     "rss": 0.05862277345195121
+    },
+    "note": "unweighted OLS; bootstrap = sampling error only; the two forms are not distinguishable over this N range unless rss differ clearly"
+   },
+   "vs_saddle": {
+    "thr": {
+     "diff": -0.003389635077441333,
+     "z_regression": -0.3490865708848763,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "off": {
+     "diff": 0.006942929254294017,
+     "z_regression": 1.966836067903737,
+     "saddle_in_bootstrap_ci": false,
+     "saddle_in_regression_ci": false
+    },
+    "small": {
+     "diff": 0.007154502094600584,
+     "z_regression": 2.031109037662778,
+     "saddle_in_bootstrap_ci": false,
+     "saddle_in_regression_ci": false
+    }
+   },
+   "core_secs": 111778.75919365883
+  },
+  "1": {
+   "saddle_dV_num": 0.09525914727175348,
+   "Ns": [
+    40,
+    47,
+    55,
+    62,
+    70,
+    77,
+    85,
+    92,
+    100
+   ],
+   "points": [
+    {
+     "N": 40,
+     "n_rep": 1500,
+     "horizon": 1355.0088606700297,
+     "core_secs": 2.8766279220581055,
+     "total_events": 124808871.0,
+     "thr": {
+      "Etau": 51.59081427393613,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 5.882306954428233e-09,
+      "naive_mean_observed_only": 51.59081427393613
+     },
+     "off": {
+      "Etau": 194.79149558265456,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 1.4290631031935321,
+      "naive_mean_observed_only": 193.88755371429562
+     },
+     "small": {
+      "Etau": 196.52848708305075,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 1.5196811432541404,
+      "naive_mean_observed_only": 195.6245452146918
+     },
+     "Eoff_over_Ethr": 3.7757011267229394,
+     "Eoff_over_exp_NdV": 4.312698637697469,
+     "Ethr_over_exp_NdV": 1.1422245810649234,
+     "extinction_before_small_rect": 82,
+     "extinction_before_large_rect": 1,
+     "thr_vs_stored": {
+      "stored_Etau": 55.26516470413854,
+      "stored_n_exit": 1062,
+      "new_Etau_at_stored_horizon": 53.049646199894035,
+      "new_n_exit": 1096,
+      "log_ratio": -0.04091458116400117,
+      "z": -0.9502107184925686
+     },
+     "off_at_stored_horizon": {
+      "Etau": 225.64400282559342,
+      "n_exit": 393,
+      "ratio_to_full": 1.1583873420687785
+     },
+     "attempts": {
+      "total": 5038,
+      "returned_to_on": 3539,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.7024612941643509,
+      "retry_fraction_ci": [
+       0.6896865215412396,
+       0.714927538527605
+      ],
+      "success_prob": 0.29753870583564906,
+      "success_prob_ci": [
+       0.2850724614723949,
+       0.3103134784587604
+      ],
+      "first_entry_returned_fraction": 0.7226666666666667,
+      "first_entry_returned_ci": [
+       0.6994638101424602,
+       0.7447319083427846
+      ],
+      "mean_attempts_per_traj": 3.3586666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.102636916417174,
+     "small_minus_large_mean": 1.7369915003962115,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.1823775653511288,
+       "q25": 0.4323775653511288,
+       "q50": 0.6323775653511288,
+       "q75": 0.8573775653511289,
+       "q95": 1.1823775653511286
+      },
+      "mean_w_minus_wstar": 0.6516442320177954,
+      "frac_above_wstar": 0.9893333333333333,
+      "frac_below_wstar_first_entry": 0.010666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.006576254898528905,
+       0.017257106274615925
+      ],
+      "frac_below_wstar_all_attempts": 0.009329098848749504,
+      "X_at_entry_values": [
+       22
+      ],
+      "success_prob_attempts_above_wstar": 0.29392907233019433,
+      "success_prob_attempts_at_or_below_wstar": 0.6808510638297872,
+      "n_attempts_above": 4991,
+      "n_attempts_at_or_below": 47
+     },
+     "lattice": {
+      "threshold_count": 22,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       12,
+       28
+      ],
+      "small_rect_counts": [
+       6,
+       14
+      ],
+      "n_lattice_points_small_rect": 105
+     }
+    },
+    {
+     "N": 47,
+     "n_rep": 1500,
+     "horizon": 2639.5858357472316,
+     "core_secs": 6.489468097686768,
+     "total_events": 271486458.0,
+     "thr": {
+      "Etau": 91.50920384941087,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 4.455058378392119e-10,
+      "naive_mean_observed_only": 91.50920384941087
+     },
+     "off": {
+      "Etau": 356.0949940385237,
+      "n_exit": 1497,
+      "censored_frac": 0.0020000000000000018,
+      "se_log": 0.02584574765818718,
+      "expected_censored_if_exponential": 0.9054089011403011,
+      "naive_mean_observed_only": 350.80524286468153
+     },
+     "small": {
+      "Etau": 358.0699833118752,
+      "n_exit": 1497,
+      "censored_frac": 0.0020000000000000018,
+      "se_log": 0.02584574765818718,
+      "expected_censored_if_exponential": 0.9431939401618388,
+      "naive_mean_observed_only": 352.7802321380331
+     },
+     "Eoff_over_Ethr": 3.891357142878434,
+     "Eoff_over_exp_NdV": 4.0471689446429915,
+     "Ethr_over_exp_NdV": 1.0400404784355781,
+     "extinction_before_small_rect": 58,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 92.45759781934642,
+      "stored_n_exit": 1153,
+      "new_Etau_at_stored_horizon": 91.6903388384337,
+      "new_n_exit": 1145,
+      "log_ratio": -0.008333119933482503,
+      "z": -0.19973308831651915
+     },
+     "off_at_stored_horizon": {
+      "Etau": 382.43541921270923,
+      "n_exit": 438,
+      "ratio_to_full": 1.073970220348944
+     },
+     "attempts": {
+      "total": 5453,
+      "returned_to_on": 3956,
+      "reached_off": 1497,
+      "censored": 0,
+      "retry_fraction": 0.7254722171281863,
+      "retry_fraction_ci": [
+       0.7134714062147257,
+       0.7371555645223394
+      ],
+      "success_prob": 0.2745277828718137,
+      "success_prob_ci": [
+       0.2628444354776605,
+       0.28652859378527423
+      ],
+      "first_entry_returned_fraction": 0.7186666666666667,
+      "first_entry_returned_ci": [
+       0.6953748803404893,
+       0.7408412743396313
+      ],
+      "mean_attempts_per_traj": 3.6353333333333335,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.31445135034872,
+     "small_minus_large_mean": 1.974989273351611,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.1589733100319799,
+       "q25": 0.39301586322346926,
+       "q50": 0.5632286291809161,
+       "q75": 0.7759945866277245,
+       "q95": 1.116420118542618
+      },
+      "mean_w_minus_wstar": 0.5914839483298522,
+      "frac_above_wstar": 0.9953333333333333,
+      "frac_below_wstar_first_entry": 0.004666666666666667,
+      "frac_below_wstar_first_entry_ci": [
+       0.0022623252086938616,
+       0.009601690256764736
+      ],
+      "frac_below_wstar_all_attempts": 0.009169264624977077,
+      "X_at_entry_values": [
+       26
+      ],
+      "success_prob_attempts_above_wstar": 0.27059041273366646,
+      "success_prob_attempts_at_or_below_wstar": 0.7,
+      "n_attempts_above": 5403,
+      "n_attempts_at_or_below": 50
+     },
+     "lattice": {
+      "threshold_count": 26,
+      "threshold_density": 0.5531914893617021,
+      "large_rect_counts": [
+       14,
+       32
+      ],
+      "small_rect_counts": [
+       7,
+       16
+      ],
+      "n_lattice_points_small_rect": 136
+     }
+    },
+    {
+     "N": 55,
+     "n_rep": 1500,
+     "horizon": 5655.877119260915,
+     "core_secs": 15.716948509216309,
+     "total_events": 664372136.0,
+     "thr": {
+      "Etau": 189.55590278182382,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.651288969102228e-10,
+      "naive_mean_observed_only": 189.55590278182382
+     },
+     "off": {
+      "Etau": 735.5330784330826,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.6864145646786957,
+      "naive_mean_observed_only": 735.5330784330826
+     },
+     "small": {
+      "Etau": 737.5615608550294,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.7010854917639251,
+      "naive_mean_observed_only": 733.788460708758
+     },
+     "Eoff_over_Ethr": 3.8802963539450985,
+     "Eoff_over_exp_NdV": 3.90142711514142,
+     "Ethr_over_exp_NdV": 1.005445656534671,
+     "extinction_before_small_rect": 27,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 201.75654706994825,
+      "stored_n_exit": 1138,
+      "new_Etau_at_stored_horizon": 189.37673021063236,
+      "new_n_exit": 1172,
+      "log_ratio": -0.06332344537583606,
+      "z": -1.521575418022295
+     },
+     "off_at_stored_horizon": {
+      "Etau": 747.4989961568556,
+      "n_exit": 475,
+      "ratio_to_full": 1.0162683611038463
+     },
+     "attempts": {
+      "total": 5496,
+      "returned_to_on": 3996,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.7270742358078602,
+      "retry_fraction_ci": [
+       0.7151414091171422,
+       0.7386898430411017
+      ],
+      "success_prob": 0.27292576419213976,
+      "success_prob_ci": [
+       0.2613101569588983,
+       0.28485859088285787
+      ],
+      "first_entry_returned_fraction": 0.7333333333333333,
+      "first_entry_returned_ci": [
+       0.7103786839397268,
+       0.7550958713591822
+      ],
+      "mean_attempts_per_traj": 3.664,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.227444744042889,
+     "small_minus_large_mean": 1.5372685254736145,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.1187412017147651,
+       "q25": 0.31874120171476505,
+       "q50": 0.5187412017147652,
+       "q75": 0.7005593835329469,
+       "q95": 0.9914684744420377
+      },
+      "mean_w_minus_wstar": 0.5295290805026439,
+      "frac_above_wstar": 0.9906666666666667,
+      "frac_below_wstar_first_entry": 0.009333333333333334,
+      "frac_below_wstar_first_entry_ci": [
+       0.005567713389794795,
+       0.015605793181641986
+      ],
+      "frac_below_wstar_all_attempts": 0.011644832605531296,
+      "X_at_entry_values": [
+       30
+      ],
+      "success_prob_attempts_above_wstar": 0.26748895434462444,
+      "success_prob_attempts_at_or_below_wstar": 0.734375,
+      "n_attempts_above": 5432,
+      "n_attempts_at_or_below": 64
+     },
+     "lattice": {
+      "threshold_count": 30,
+      "threshold_density": 0.5454545454545454,
+      "large_rect_counts": [
+       16,
+       38
+      ],
+      "small_rect_counts": [
+       8,
+       19
+      ],
+      "n_lattice_points_small_rect": 180
+     }
+    },
+    {
+     "N": 62,
+     "n_rep": 1500,
+     "horizon": 11017.76790252555,
+     "core_secs": 33.524102210998535,
+     "total_events": 1414900120.0,
+     "thr": {
+      "Etau": 356.82771303017466,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 5.839588389165171e-11,
+      "naive_mean_observed_only": 356.82771303017466
+     },
+     "off": {
+      "Etau": 1380.000770537175,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.5113684356585373,
+      "naive_mean_observed_only": 1372.650691883055
+     },
+     "small": {
+      "Etau": 1381.5873214282797,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.5160783854079983,
+      "naive_mean_observed_only": 1374.2372427741598
+     },
+     "Eoff_over_Ethr": 3.867414777900048,
+     "Eoff_over_exp_NdV": 3.757568999672368,
+     "Ethr_over_exp_NdV": 0.9715971043873074,
+     "extinction_before_small_rect": 15,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 346.07463186870865,
+      "stored_n_exit": 1211,
+      "new_Etau_at_stored_horizon": 365.5954923999601,
+      "new_n_exit": 1182,
+      "log_ratio": 0.054873059341675044,
+      "z": 1.3420498092164161
+     },
+     "off_at_stored_horizon": {
+      "Etau": 1417.2379574982338,
+      "n_exit": 486,
+      "ratio_to_full": 1.0269834537458729
+     },
+     "attempts": {
+      "total": 5786,
+      "returned_to_on": 4287,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.740926374006222,
+      "retry_fraction_ci": [
+       0.7294798581976285,
+       0.752053177179367
+      ],
+      "success_prob": 0.2590736259937781,
+      "success_prob_ci": [
+       0.2479468228206329,
+       0.27052014180237155
+      ],
+      "first_entry_returned_fraction": 0.7526666666666667,
+      "first_entry_returned_ci": [
+       0.7302045849925145,
+       0.7738378620311614
+      ],
+      "mean_attempts_per_traj": 3.8573333333333335,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.1775005401334555,
+     "small_minus_large_mean": 1.586550891104629,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.10818401696403201,
+       "q25": 0.31786143631887076,
+       "q50": 0.511409823415645,
+       "q75": 0.6888291782543545,
+       "q95": 0.9468936943833868
+      },
+      "mean_w_minus_wstar": 0.5142592857812364,
+      "frac_above_wstar": 0.988,
+      "frac_below_wstar_first_entry": 0.012,
+      "frac_below_wstar_first_entry_ci": [
+       0.007603871668977666,
+       0.018889344105875217
+      ],
+      "frac_below_wstar_all_attempts": 0.01123401313515382,
+      "X_at_entry_values": [
+       34
+      ],
+      "success_prob_attempts_above_wstar": 0.2531026044397833,
+      "success_prob_attempts_at_or_below_wstar": 0.7846153846153846,
+      "n_attempts_above": 5721,
+      "n_attempts_at_or_below": 65
+     },
+     "lattice": {
+      "threshold_count": 34,
+      "threshold_density": 0.5483870967741935,
+      "large_rect_counts": [
+       18,
+       43
+      ],
+      "small_rect_counts": [
+       9,
+       21
+      ],
+      "n_lattice_points_small_rect": 220
+     }
+    },
+    {
+     "N": 70,
+     "n_rep": 1500,
+     "horizon": 23607.92384218145,
+     "core_secs": 82.62404537200928,
+     "total_events": 3483487024.0,
+     "thr": {
+      "Etau": 629.3202245288415,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 7.660210371271694e-14,
+      "naive_mean_observed_only": 629.3202245288415
+     },
+     "off": {
+      "Etau": 2986.3047290442482,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.5531221528131598,
+      "naive_mean_observed_only": 2986.3047290442482
+     },
+     "small": {
+      "Etau": 2987.919746631641,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.5554906956971332,
+      "naive_mean_observed_only": 2987.919746631641
+     },
+     "Eoff_over_Ethr": 4.745286441858801,
+     "Eoff_over_exp_NdV": 3.7948759268383467,
+     "Ethr_over_exp_NdV": 0.7997148271942539,
+     "extinction_before_small_rect": 10,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 614.7976947288205,
+      "stored_n_exit": 1275,
+      "new_Etau_at_stored_horizon": 634.6359893604075,
+      "new_n_exit": 1260,
+      "log_ratio": 0.031758327393581746,
+      "z": 0.7994825787206135
+     },
+     "off_at_stored_horizon": {
+      "Etau": 3026.5821806129666,
+      "n_exit": 484,
+      "ratio_to_full": 1.013487388335486
+     },
+     "attempts": {
+      "total": 6927,
+      "returned_to_on": 5427,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.78345604157644,
+      "retry_fraction_ci": [
+       0.7736005210721981,
+       0.7929973362500642
+      ],
+      "success_prob": 0.21654395842355997,
+      "success_prob_ci": [
+       0.20700266374993584,
+       0.2263994789278019
+      ],
+      "first_entry_returned_fraction": 0.7773333333333333,
+      "first_entry_returned_ci": [
+       0.7555855135896447,
+       0.7976642435656301
+      ],
+      "mean_attempts_per_traj": 4.618,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.460443986467863,
+     "small_minus_large_mean": 1.615017587392394,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.13952042249398589,
+       "q25": 0.3252347082082716,
+       "q50": 0.4966632796368431,
+       "q75": 0.6680918510654146,
+       "q95": 0.9395204224939857
+      },
+      "mean_w_minus_wstar": 0.5110251843987478,
+      "frac_above_wstar": 0.99,
+      "frac_below_wstar_first_entry": 0.01,
+      "frac_below_wstar_first_entry_ci": [
+       0.0060693828628643936,
+       0.016434051009426413
+      ],
+      "frac_below_wstar_all_attempts": 0.00837303305904432,
+      "X_at_entry_values": [
+       39
+      ],
+      "success_prob_attempts_above_wstar": 0.2113844810016014,
+      "success_prob_attempts_at_or_below_wstar": 0.8275862068965517,
+      "n_attempts_above": 6869,
+      "n_attempts_at_or_below": 58
+     },
+     "lattice": {
+      "threshold_count": 39,
+      "threshold_density": 0.5571428571428572,
+      "large_rect_counts": [
+       21,
+       49
+      ],
+      "small_rect_counts": [
+       10,
+       24
+      ],
+      "n_lattice_points_small_rect": 275
+     }
+    },
+    {
+     "N": 77,
+     "n_rep": 1500,
+     "horizon": 45988.73350127597,
+     "core_secs": 164.1777195930481,
+     "total_events": 7039641436.0,
+     "thr": {
+      "Etau": 1160.619997330548,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 9.278642661842611e-15,
+      "naive_mean_observed_only": 1160.619997330548
+     },
+     "off": {
+      "Etau": 5462.827870359418,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.33112331074039486,
+      "naive_mean_observed_only": 5462.827870359418
+     },
+     "small": {
+      "Etau": 5464.40234498492,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.33192747267901535,
+      "naive_mean_observed_only": 5464.40234498492
+     },
+     "Eoff_over_Ethr": 4.706818668404857,
+     "Eoff_over_exp_NdV": 3.563586635979777,
+     "Ethr_over_exp_NdV": 0.7571115199106403,
+     "extinction_before_small_rect": 2,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 1129.345293118056,
+      "stored_n_exit": 1304,
+      "new_Etau_at_stored_horizon": 1153.1802662128282,
+      "new_n_exit": 1299,
+      "log_ratio": 0.02088549624354275,
+      "z": 0.5327838917203432
+     },
+     "off_at_stored_horizon": {
+      "Etau": 5698.752393061328,
+      "n_exit": 495,
+      "ratio_to_full": 1.0431872517862049
+     },
+     "attempts": {
+      "total": 7210,
+      "returned_to_on": 5710,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.7919556171983356,
+      "retry_fraction_ci": [
+       0.7824318368993366,
+       0.8011684462008635
+      ],
+      "success_prob": 0.20804438280166435,
+      "success_prob_ci": [
+       0.1988315537991366,
+       0.21756816310066338
+      ],
+      "first_entry_returned_fraction": 0.7906666666666666,
+      "first_entry_returned_ci": [
+       0.7693484854944227,
+       0.8104998176779327
+      ],
+      "mean_attempts_per_traj": 4.806666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.418412831401216,
+     "small_minus_large_mean": 1.5744746255027393,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.1291308121043755,
+       "q25": 0.31094899392255737,
+       "q50": 0.47978016275372615,
+       "q75": 0.635624318597882,
+       "q95": 0.9083515913251545
+      },
+      "mean_w_minus_wstar": 0.4871134960870595,
+      "frac_above_wstar": 0.9913333333333333,
+      "frac_below_wstar_first_entry": 0.008666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.005071771942657127,
+       0.014771807327925624
+      ],
+      "frac_below_wstar_all_attempts": 0.007489597780859916,
+      "X_at_entry_values": [
+       43
+      ],
+      "success_prob_attempts_above_wstar": 0.2043040804918949,
+      "success_prob_attempts_at_or_below_wstar": 0.7037037037037037,
+      "n_attempts_above": 7156,
+      "n_attempts_at_or_below": 54
+     },
+     "lattice": {
+      "threshold_count": 43,
+      "threshold_density": 0.5584415584415584,
+      "large_rect_counts": [
+       23,
+       53
+      ],
+      "small_rect_counts": [
+       11,
+       26
+      ],
+      "n_lattice_points_small_rect": 324
+     }
+    },
+    {
+     "N": 85,
+     "n_rep": 1500,
+     "horizon": 98540.69605583466,
+     "core_secs": 381.43505024909973,
+     "total_events": 16408293714.0,
+     "thr": {
+      "Etau": 2508.5053750107454,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.3057514211925465e-14,
+      "naive_mean_observed_only": 2508.5053750107454
+     },
+     "off": {
+      "Etau": 11486.525556587952,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.2820735288669543,
+      "naive_mean_observed_only": 11486.525556587952
+     },
+     "small": {
+      "Etau": 11488.116038354472,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.282408746678629,
+      "naive_mean_observed_only": 11488.116038354472
+     },
+     "Eoff_over_Ethr": 4.579031670019344,
+     "Eoff_over_exp_NdV": 3.496989370791387,
+     "Ethr_over_exp_NdV": 0.7636962621786398,
+     "extinction_before_small_rect": 4,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 2474.416068091595,
+      "stored_n_exit": 1289,
+      "new_Etau_at_stored_horizon": 2469.6720705634257,
+      "new_n_exit": 1307,
+      "log_ratio": -0.0019190592283365462,
+      "z": -0.0488877767042479
+     },
+     "off_at_stored_horizon": {
+      "Etau": 11175.33674849434,
+      "n_exit": 539,
+      "ratio_to_full": 0.972908360621273
+     },
+     "attempts": {
+      "total": 6930,
+      "returned_to_on": 5430,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.7835497835497836,
+      "retry_fraction_ci": [
+       0.7736978957300822,
+       0.793087477619087
+      ],
+      "success_prob": 0.21645021645021645,
+      "success_prob_ci": [
+       0.20691252238091307,
+       0.22630210426991787
+      ],
+      "first_entry_returned_fraction": 0.79,
+      "first_entry_returned_ci": [
+       0.7686595667316524,
+       0.809858809139849
+      ],
+      "mean_attempts_per_traj": 4.62,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.297165065072742,
+     "small_minus_large_mean": 1.590481766518821,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.10531874182171712,
+       "q25": 0.2941422712334818,
+       "q50": 0.44708344770406994,
+       "q75": 0.6235540359393641,
+       "q95": 0.858848153586423
+      },
+      "mean_w_minus_wstar": 0.4596246241746582,
+      "frac_above_wstar": 0.9893333333333333,
+      "frac_below_wstar_first_entry": 0.010666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.006576254898528905,
+       0.017257106274615925
+      ],
+      "frac_below_wstar_all_attempts": 0.007647907647907648,
+      "X_at_entry_values": [
+       47
+      ],
+      "success_prob_attempts_above_wstar": 0.2131743492802094,
+      "success_prob_attempts_at_or_below_wstar": 0.6415094339622641,
+      "n_attempts_above": 6877,
+      "n_attempts_at_or_below": 53
+     },
+     "lattice": {
+      "threshold_count": 47,
+      "threshold_density": 0.5529411764705883,
+      "large_rect_counts": [
+       25,
+       59
+      ],
+      "small_rect_counts": [
+       12,
+       29
+      ],
+      "n_lattice_points_small_rect": 390
+     }
+    },
+    {
+     "N": 92,
+     "n_rep": 1500,
+     "horizon": 191959.35399642773,
+     "core_secs": 825.4284245967865,
+     "total_events": 35165569161.0,
+     "thr": {
+      "Etau": 4721.275877435495,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 3.2990435950556622e-15,
+      "naive_mean_observed_only": 4721.275877435495
+     },
+     "off": {
+      "Etau": 22680.182840411027,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.31646972610380225,
+      "naive_mean_observed_only": 22680.182840411027
+     },
+     "small": {
+      "Etau": 22681.75133287346,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.3166550058086686,
+      "naive_mean_observed_only": 22681.75133287346
+     },
+     "Eoff_over_Ethr": 4.803824946728269,
+     "Eoff_over_exp_NdV": 3.544528938271968,
+     "Ethr_over_exp_NdV": 0.7378555583475275,
+     "extinction_before_small_rect": 4,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 4569.032092310406,
+      "stored_n_exit": 1317,
+      "new_Etau_at_stored_horizon": 4689.265396634874,
+      "new_n_exit": 1303,
+      "log_ratio": 0.025974551861736347,
+      "z": 0.6647563783691038
+     },
+     "off_at_stored_horizon": {
+      "Etau": 21880.68005746239,
+      "n_exit": 537,
+      "ratio_to_full": 0.9647488387296375
+     },
+     "attempts": {
+      "total": 7406,
+      "returned_to_on": 5906,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.7974615176883608,
+      "retry_fraction_ci": [
+       0.7881551756015956,
+       0.8064594245269685
+      ],
+      "success_prob": 0.2025384823116392,
+      "success_prob_ci": [
+       0.19354057547303144,
+       0.21184482439840435
+      ],
+      "first_entry_returned_fraction": 0.7926666666666666,
+      "first_entry_returned_ci": [
+       0.7714157410985728,
+       0.8124223439763446
+      ],
+      "mean_attempts_per_traj": 4.937333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.402804933861285,
+     "small_minus_large_mean": 1.5684924624301912,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.09976886969895493,
+       "q25": 0.28455147839460704,
+       "q50": 0.4149862610033026,
+       "q75": 0.5780297392641722,
+       "q95": 0.8497688696989549
+      },
+      "mean_w_minus_wstar": 0.4409862610033027,
+      "frac_above_wstar": 0.9913333333333333,
+      "frac_below_wstar_first_entry": 0.008666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.005071771942657127,
+       0.014771807327925624
+      ],
+      "frac_below_wstar_all_attempts": 0.00769646232784229,
+      "X_at_entry_values": [
+       51
+      ],
+      "success_prob_attempts_above_wstar": 0.19893863110627297,
+      "success_prob_attempts_at_or_below_wstar": 0.6666666666666666,
+      "n_attempts_above": 7349,
+      "n_attempts_at_or_below": 57
+     },
+     "lattice": {
+      "threshold_count": 51,
+      "threshold_density": 0.5543478260869565,
+      "large_rect_counts": [
+       27,
+       64
+      ],
+      "small_rect_counts": [
+       13,
+       32
+      ],
+      "n_lattice_points_small_rect": 462
+     }
+    },
+    {
+     "N": 100,
+     "n_rep": 1500,
+     "horizon": 411313.96577188955,
+     "core_secs": 1929.5283946990967,
+     "total_events": 81044381115.0,
+     "thr": {
+      "Etau": 10206.070964616885,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 4.716584816004703e-15,
+      "naive_mean_observed_only": 10206.070964616885
+     },
+     "off": {
+      "Etau": 47956.64260742748,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.28264380907508085,
+      "naive_mean_observed_only": 47956.64260742748
+     },
+     "small": {
+      "Etau": 47958.2143833167,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.2827232698544025,
+      "naive_mean_observed_only": 47958.2143833167
+     },
+     "Eoff_over_Ethr": 4.698834916363691,
+     "Eoff_over_exp_NdV": 3.4978128581724652,
+     "Ethr_over_exp_NdV": 0.7444000311633279,
+     "extinction_before_small_rect": 1,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 10640.314326433483,
+      "stored_n_exit": 1288,
+      "new_Etau_at_stored_horizon": 10215.72436198566,
+      "new_n_exit": 1312,
+      "log_ratio": -0.040721888080517105,
+      "z": -1.0381642774537807
+     },
+     "off_at_stored_horizon": {
+      "Etau": 47408.024971929895,
+      "n_exit": 531,
+      "ratio_to_full": 0.9885601325349532
+     },
+     "attempts": {
+      "total": 7022,
+      "returned_to_on": 5522,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.7863856451153518,
+      "retry_fraction_ci": [
+       0.7766439279565988,
+       0.7958141815458984
+      ],
+      "success_prob": 0.21361435488464825,
+      "success_prob_ci": [
+       0.20418581845410164,
+       0.22335607204340122
+      ],
+      "first_entry_returned_fraction": 0.782,
+      "first_entry_returned_ci": [
+       0.7603989144659634,
+       0.8021603337952897
+      ],
+      "mean_attempts_per_traj": 4.681333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 4.283738945365431,
+     "small_minus_large_mean": 1.571775889219529,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.08237756535112872,
+       "q25": 0.24237756535112887,
+       "q50": 0.38237756535112877,
+       "q75": 0.5323775653511287,
+       "q95": 0.7923775653511287
+      },
+      "mean_w_minus_wstar": 0.39931089868446207,
+      "frac_above_wstar": 0.99,
+      "frac_below_wstar_first_entry": 0.01,
+      "frac_below_wstar_first_entry_ci": [
+       0.0060693828628643936,
+       0.016434051009426413
+      ],
+      "frac_below_wstar_all_attempts": 0.01096553688407861,
+      "X_at_entry_values": [
+       55
+      ],
+      "success_prob_attempts_above_wstar": 0.20892728581713463,
+      "success_prob_attempts_at_or_below_wstar": 0.6363636363636364,
+      "n_attempts_above": 6945,
+      "n_attempts_at_or_below": 77
+     },
+     "lattice": {
+      "threshold_count": 55,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       30,
+       70
+      ],
+      "small_rect_counts": [
+       15,
+       35
+      ],
+      "n_lattice_points_small_rect": 576
+     }
+    }
+   ],
+   "fits": {
+    "thr": {
+     "slope": 0.09965376975060024,
+     "se_nominal": 0.0034600804876916743,
+     "se": 0.0070324764710578795,
+     "b_logN": -0.8155783465778497,
+     "a": 2.986250528134654,
+     "chi2_red": 4.130895158926767,
+     "dof": 6,
+     "ci95_regression": [
+      0.08587011586732679,
+      0.11343742363387369
+     ],
+     "linear_model": {
+      "slope": 0.08739386883824,
+      "se": 0.0010292968604368401,
+      "a": 0.41308169130257133,
+      "chi2_red": 5.364358762896342,
+      "dof": 7
+     },
+     "drop_smallest_N": {
+      "slope": 0.1049801174853672,
+      "se_nominal": 0.004916793137442762,
+      "se": 0.010420928609645918,
+      "b_logN": -1.2143051608070214,
+      "a": 4.29921683773914,
+      "chi2_red": 4.492095368579965,
+      "dof": 5
+     },
+     "bootstrap_se": 0.003386738493588318,
+     "ci95_bootstrap": [
+      0.09292402451288684,
+      0.10621845051006536
+     ]
+    },
+    "off": {
+     "slope": 0.09942765587803458,
+     "se_nominal": 0.003460564496350785,
+     "se": 0.003460564496350785,
+     "b_logN": -0.49973436562306206,
+     "a": 3.1342675125661317,
+     "chi2_red": 0.3970833294163178,
+     "dof": 6,
+     "ci95_regression": [
+      0.09264494946518705,
+      0.10621036229088211
+     ],
+     "linear_model": {
+      "slope": 0.09191581529670005,
+      "se": 0.00044999236008400615,
+      "a": 1.5575745246895643,
+      "chi2_red": 1.0247830366699477,
+      "dof": 7
+     },
+     "drop_smallest_N": {
+      "slope": 0.09838315678047127,
+      "se_nominal": 0.004918394056208415,
+      "se": 0.004918394056208415,
+      "b_logN": -0.4215396941372334,
+      "a": 2.8767756655501895,
+      "chi2_red": 0.45863720336133473,
+      "dof": 5
+     },
+     "bootstrap_se": 0.003406166140743376,
+     "ci95_bootstrap": [
+      0.09286800476045438,
+      0.10588846945790291
+     ]
+    },
+    "small": {
+     "slope": 0.09990482963668375,
+     "se_nominal": 0.0034606404408738284,
+     "se": 0.0034606404408738284,
+     "b_logN": -0.5400139504545509,
+     "a": 3.2724575348605547,
+     "chi2_red": 0.39496716901416434,
+     "dof": 6,
+     "ci95_regression": [
+      0.09312197437257104,
+      0.10668768490079646
+     ],
+     "linear_model": {
+      "slope": 0.09178747946632351,
+      "se": 0.0004741506921418268,
+      "a": 1.5686837858118912,
+      "chi2_red": 1.1377207070591973,
+      "dof": 7
+     },
+     "drop_smallest_N": {
+      "slope": 0.09881164248002072,
+      "se_nominal": 0.0049183959917935925,
+      "se": 0.0049183959917935925,
+      "b_logN": -0.45817368867419156,
+      "a": 3.0029601417211067,
+      "chi2_red": 0.45439288149980905,
+      "dof": 5
+     },
+     "bootstrap_se": 0.0033992488023362804,
+     "ci95_bootstrap": [
+      0.09331715201466756,
+      0.10633453233286437
+     ]
+    }
+   },
+   "slope_differences": {
+    "off_minus_thr": {
+     "estimate": -0.00022611387256565862,
+     "bootstrap_se": 0.004250931007319689,
+     "ci95_bootstrap": [
+      -0.008214525840618207,
+      0.00837796796134196
+     ],
+     "corr_bootstrap": 0.21678399337165885,
+     "linear_model_estimate": 0.004521946458460047,
+     "linear_model_ci95_bootstrap": [
+      0.003407611801518073,
+      0.005586615638402406
+     ]
+    },
+    "small_minus_off": {
+     "estimate": 0.00047717375864916867,
+     "bootstrap_se": 8.510083733556751e-05,
+     "ci95_bootstrap": [
+      0.00035240403801204583,
+      0.0006634327909970513
+     ],
+     "corr_bootstrap": 0.9996893223973939,
+     "linear_model_estimate": -0.00012833583037653862,
+     "linear_model_ci95_bootstrap": [
+      -0.00015978790036393631,
+      -0.00010569314298631005
+     ]
+    },
+    "small_minus_thr": {
+     "estimate": 0.00025105988608351004,
+     "bootstrap_se": 0.0042490216250718775,
+     "ci95_bootstrap": [
+      -0.007669604453377106,
+      0.008800629997593148
+     ],
+     "corr_bootstrap": 0.21588546360242125,
+     "linear_model_estimate": 0.004393610628083508,
+     "linear_model_ci95_bootstrap": [
+      0.003276696130252543,
+      0.005453908679678628
+     ]
+    }
+   },
+   "off_thr_ratio": {
+    "log_ratio_by_N": {
+     "40": 1.328586094388734,
+     "47": 1.358757976703243,
+     "55": 1.3559115306011447,
+     "62": 1.3525862677730558,
+     "70": 1.557151797333402,
+     "77": 1.549012237862382,
+     "85": 1.5214875500125482,
+     "92": 1.5694124644880956,
+     "100": 1.54731458785079
+    },
+    "linear_in_N": {
+     "slope": 0.004521798004149558,
+     "ci95_bootstrap": [
+      0.003407472727965154,
+      0.005586215123781247
+     ],
+     "rss": 0.021610142185828685
+    },
+    "linear_in_logN": {
+     "coef": 0.30105616533176455,
+     "ci95_bootstrap": [
+      0.22849310648408508,
+      0.3698554883758161
+     ],
+     "rss": 0.020336801888274834
+    },
+    "note": "unweighted OLS; bootstrap = sampling error only; the two forms are not distinguishable over this N range unless rss differ clearly"
+   },
+   "vs_saddle": {
+    "thr": {
+     "diff": 0.004394622478846755,
+     "z_regression": 0.6249039718700519,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "off": {
+     "diff": 0.004168508606281096,
+     "z_regression": 1.2045747480438087,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "small": {
+     "diff": 0.004645682364930265,
+     "z_regression": 1.3424342818340318,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    }
+   },
+   "core_secs": 3441.80078125
+  },
+  "2": {
+   "saddle_dV_num": 0.07905693654034197,
+   "Ns": [
+    50,
+    65,
+    80,
+    95,
+    110
+   ],
+   "points": [
+    {
+     "N": 50,
+     "n_rep": 1500,
+     "horizon": 1562.5028547974482,
+     "core_secs": 5.269835472106934,
+     "total_events": 238327971.0,
+     "thr": {
+      "Etau": 92.7123247877167,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 7.191559681452063e-05,
+      "naive_mean_observed_only": 92.7123247877167
+     },
+     "off": {
+      "Etau": 202.46952751926065,
+      "n_exit": 1498,
+      "censored_frac": 0.0013333333333332975,
+      "se_log": 0.02583711946644009,
+      "expected_censored_if_exponential": 0.6676411889325816,
+      "naive_mean_observed_only": 200.38340888802244
+     },
+     "small": {
+      "Etau": 203.83914157006487,
+      "n_exit": 1498,
+      "censored_frac": 0.0013333333333332975,
+      "se_log": 0.02583711946644009,
+      "expected_censored_if_exponential": 0.7031734812828363,
+      "naive_mean_observed_only": 201.75302293882663
+     },
+     "Eoff_over_Ethr": 2.1838469478880493,
+     "Eoff_over_exp_NdV": 3.8874078258021623,
+     "Ethr_over_exp_NdV": 1.7800733836048306,
+     "extinction_before_small_rect": 4,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 89.31648442695041,
+      "stored_n_exit": 882,
+      "new_Etau_at_stored_horizon": 93.71978432567148,
+      "new_n_exit": 862,
+      "log_ratio": 0.04812324548119543,
+      "z": 1.0047767891837123
+     },
+     "off_at_stored_horizon": {
+      "Etau": 221.51080833993637,
+      "n_exit": 453,
+      "ratio_to_full": 1.0940451684457275
+     },
+     "attempts": {
+      "total": 3161,
+      "returned_to_on": 1663,
+      "reached_off": 1498,
+      "censored": 0,
+      "retry_fraction": 0.5260993356532743,
+      "retry_fraction_ci": [
+       0.5086712972787087,
+       0.5434640133794929
+      ],
+      "success_prob": 0.47390066434672573,
+      "success_prob_ci": [
+       0.45653598662050704,
+       0.4913287027212912
+      ],
+      "first_entry_returned_fraction": 0.5513333333333333,
+      "first_entry_returned_ci": [
+       0.5260642451195575,
+       0.5763401570462025
+      ],
+      "mean_attempts_per_traj": 2.1073333333333335,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.565309155240092,
+     "small_minus_large_mean": 1.3696140508041894,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.002377565351128874,
+       "q25": 0.20237756535112883,
+       "q50": 0.34237756535112873,
+       "q75": 0.5223775653511287,
+       "q95": 0.743377565351128
+      },
+      "mean_w_minus_wstar": 0.3622575653511288,
+      "frac_above_wstar": 0.9586666666666667,
+      "frac_below_wstar_first_entry": 0.04133333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.032376061541247794,
+       0.05263395547118224
+      ],
+      "frac_below_wstar_all_attempts": 0.04492249288199937,
+      "X_at_entry_values": [
+       27
+      ],
+      "success_prob_attempts_above_wstar": 0.4600861212321961,
+      "success_prob_attempts_at_or_below_wstar": 0.7676056338028169,
+      "n_attempts_above": 3019,
+      "n_attempts_at_or_below": 142
+     },
+     "lattice": {
+      "threshold_count": 27,
+      "threshold_density": 0.54,
+      "large_rect_counts": [
+       15,
+       35
+      ],
+      "small_rect_counts": [
+       7,
+       17
+      ],
+      "n_lattice_points_small_rect": 144
+     }
+    },
+    {
+     "N": 65,
+     "n_rep": 1500,
+     "horizon": 5114.823936539338,
+     "core_secs": 20.754964113235474,
+     "total_events": 935948649.0,
+     "thr": {
+      "Etau": 246.38538189452134,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.4467003273592744e-06,
+      "naive_mean_observed_only": 246.38538189452134
+     },
+     "off": {
+      "Etau": 600.8263268705037,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.3012659055730147,
+      "naive_mean_observed_only": 600.8263268705037
+     },
+     "small": {
+      "Etau": 602.0170924659711,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.306381671971821,
+      "naive_mean_observed_only": 602.0170924659711
+     },
+     "Eoff_over_Ethr": 2.438563206350124,
+     "Eoff_over_exp_NdV": 3.5240293761334405,
+     "Ethr_over_exp_NdV": 1.4451252963042809,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 257.19590787114697,
+      "stored_n_exit": 936,
+      "new_Etau_at_stored_horizon": 250.4709127429242,
+      "new_n_exit": 968,
+      "log_ratio": -0.026495284949958876,
+      "z": -0.5779772250949671
+     },
+     "off_at_stored_horizon": {
+      "Etau": 578.3713258725921,
+      "n_exit": 541,
+      "ratio_to_full": 0.9626264695908517
+     },
+     "attempts": {
+      "total": 3523,
+      "returned_to_on": 2023,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.5742265114958842,
+      "retry_fraction_ci": [
+       0.5578264422328411,
+       0.590464878817699
+      ],
+      "success_prob": 0.42577348850411584,
+      "success_prob_ci": [
+       0.4095351211823011,
+       0.4421735577671591
+      ],
+      "first_entry_returned_fraction": 0.5586666666666666,
+      "first_entry_returned_ci": [
+       0.5334197606880683,
+       0.5836138417870859
+      ],
+      "mean_attempts_per_traj": 2.3486666666666665,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.862022872653608,
+     "small_minus_large_mean": 1.1907655954673535,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.02083910381266718,
+       "q25": 0.17468525765882115,
+       "q50": 0.31314679612035956,
+       "q75": 0.4669929499665133,
+       "q95": 0.6669929499665135
+      },
+      "mean_w_minus_wstar": 0.3251775653511288,
+      "frac_above_wstar": 0.9573333333333334,
+      "frac_below_wstar_first_entry": 0.042666666666666665,
+      "frac_below_wstar_first_entry_ci": [
+       0.03355351944336538,
+       0.0541163521707727
+      ],
+      "frac_below_wstar_all_attempts": 0.04144195288106727,
+      "X_at_entry_values": [
+       36
+      ],
+      "success_prob_attempts_above_wstar": 0.41368078175895767,
+      "success_prob_attempts_at_or_below_wstar": 0.7054794520547946,
+      "n_attempts_above": 3377,
+      "n_attempts_at_or_below": 146
+     },
+     "lattice": {
+      "threshold_count": 36,
+      "threshold_density": 0.5538461538461539,
+      "large_rect_counts": [
+       19,
+       45
+      ],
+      "small_rect_counts": [
+       9,
+       22
+      ],
+      "n_lattice_points_small_rect": 230
+     }
+    },
+    {
+     "N": 80,
+     "n_rep": 1500,
+     "horizon": 16743.280705997284,
+     "core_secs": 85.43819332122803,
+     "total_events": 3884722699.0,
+     "thr": {
+      "Etau": 831.1187124651757,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.6731474339705205e-06,
+      "naive_mean_observed_only": 831.1187124651757
+     },
+     "off": {
+      "Etau": 2005.5212217134472,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.35509399530081215,
+      "naive_mean_observed_only": 1994.3515881537426
+     },
+     "small": {
+      "Etau": 2006.700701562234,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.35684074443912434,
+      "naive_mean_observed_only": 1995.5310680025293
+     },
+     "Eoff_over_Ethr": 2.4130382238235066,
+     "Eoff_over_exp_NdV": 3.593419814663482,
+     "Ethr_over_exp_NdV": 1.4891682109244162,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 810.8039644574455,
+      "stored_n_exit": 968,
+      "new_Etau_at_stored_horizon": 821.7422483452565,
+      "new_n_exit": 962,
+      "log_ratio": 0.013400475265371645,
+      "z": 0.29435184453249935
+     },
+     "off_at_stored_horizon": {
+      "Etau": 1915.1460679664913,
+      "n_exit": 533,
+      "ratio_to_full": 0.9549368250166196
+     },
+     "attempts": {
+      "total": 3623,
+      "returned_to_on": 2124,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.5862544852332321,
+      "retry_fraction_ci": [
+       0.5701340442708165,
+       0.6021922023455231
+      ],
+      "success_prob": 0.41374551476676785,
+      "success_prob_ci": [
+       0.3978077976544769,
+       0.42986595572918346
+      ],
+      "first_entry_returned_fraction": 0.584,
+      "first_entry_returned_ci": [
+       0.5588725234825814,
+       0.6086983164250258
+      ],
+      "mean_attempts_per_traj": 2.4153333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.8812771621528643,
+     "small_minus_large_mean": 1.1794798487867757,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.005122434648871188,
+       "q25": 0.15737756535112868,
+       "q50": 0.2698775653511287,
+       "q75": 0.3948775653511287,
+       "q95": 0.6073775653511289
+      },
+      "mean_w_minus_wstar": 0.2778775653511288,
+      "frac_above_wstar": 0.9413333333333334,
+      "frac_below_wstar_first_entry": 0.058666666666666666,
+      "frac_below_wstar_first_entry_ci": [
+       0.047863248384401806,
+       0.0717248784502329
+      ],
+      "frac_below_wstar_all_attempts": 0.045818382555892906,
+      "X_at_entry_values": [
+       44
+      ],
+      "success_prob_attempts_above_wstar": 0.4029505351460804,
+      "success_prob_attempts_at_or_below_wstar": 0.6385542168674698,
+      "n_attempts_above": 3457,
+      "n_attempts_at_or_below": 166
+     },
+     "lattice": {
+      "threshold_count": 44,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       24,
+       56
+      ],
+      "small_rect_counts": [
+       12,
+       28
+      ],
+      "n_lattice_points_small_rect": 377
+     }
+    },
+    {
+     "N": 95,
+     "n_rep": 1500,
+     "horizon": 54808.81693642337,
+     "core_secs": 320.58327317237854,
+     "total_events": 14568953808.0,
+     "thr": {
+      "Etau": 2365.6346056659263,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.3002512477798073e-07,
+      "naive_mean_observed_only": 2365.6346056659263
+     },
+     "off": {
+      "Etau": 6285.712265143362,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.2450318863661336,
+      "naive_mean_observed_only": 6285.712265143362
+     },
+     "small": {
+      "Etau": 6286.892056908357,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.24543316243428023,
+      "naive_mean_observed_only": 6286.892056908357
+     },
+     "Eoff_over_Ethr": 2.65709347085491,
+     "Eoff_over_exp_NdV": 3.440529799667783,
+     "Ethr_over_exp_NdV": 1.2948471092214928,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 2271.4942292706664,
+      "stored_n_exit": 1054,
+      "new_Etau_at_stored_horizon": 2305.2523164218755,
+      "new_n_exit": 1035,
+      "log_ratio": 0.014752269561562737,
+      "z": 0.337116570190939
+     },
+     "off_at_stored_horizon": {
+      "Etau": 6187.174814940942,
+      "n_exit": 535,
+      "ratio_to_full": 0.9843235824285425
+     },
+     "attempts": {
+      "total": 3942,
+      "returned_to_on": 2442,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.619482496194825,
+      "retry_fraction_ci": [
+       0.604216579818337,
+       0.6345157605776892
+      ],
+      "success_prob": 0.380517503805175,
+      "success_prob_ci": [
+       0.36548423942231084,
+       0.3957834201816632
+      ],
+      "first_entry_returned_fraction": 0.6306666666666667,
+      "first_entry_returned_ci": [
+       0.6059376479753839,
+       0.6547281029920055
+      ],
+      "mean_attempts_per_traj": 2.628,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 3.0273166383889256,
+     "small_minus_large_mean": 1.1797917649966887,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.019219670614286644,
+       "q25": 0.16658809166691824,
+       "q50": 0.2718512495616552,
+       "q75": 0.3876407232458656,
+       "q95": 0.5876407232458656
+      },
+      "mean_w_minus_wstar": 0.2827494951756902,
+      "frac_above_wstar": 0.96,
+      "frac_below_wstar_first_entry": 0.04,
+      "frac_below_wstar_first_entry_ci": [
+       0.031201388246218903,
+       0.051148774164503086
+      ],
+      "frac_below_wstar_all_attempts": 0.03830542871638762,
+      "X_at_entry_values": [
+       53
+      ],
+      "success_prob_attempts_above_wstar": 0.371142178844632,
+      "success_prob_attempts_at_or_below_wstar": 0.6158940397350994,
+      "n_attempts_above": 3791,
+      "n_attempts_at_or_below": 151
+     },
+     "lattice": {
+      "threshold_count": 53,
+      "threshold_density": 0.5578947368421052,
+      "large_rect_counts": [
+       28,
+       66
+      ],
+      "small_rect_counts": [
+       14,
+       33
+      ],
+      "n_lattice_points_small_rect": 510
+     }
+    },
+    {
+     "N": 110,
+     "n_rep": 1500,
+     "horizon": 179415.63942688753,
+     "core_secs": 1230.3951616287231,
+     "total_events": 55165664019.0,
+     "thr": {
+      "Etau": 7808.346390212836,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.5744373496730718e-07,
+      "naive_mean_observed_only": 7808.346390212836
+     },
+     "off": {
+      "Etau": 20456.885212729198,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.23288566814606818,
+      "naive_mean_observed_only": 20456.885212729198
+     },
+     "small": {
+      "Etau": 20458.096219923304,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.23300660475791568,
+      "naive_mean_observed_only": 20458.096219923304
+     },
+     "Eoff_over_Ethr": 2.6198741949217745,
+     "Eoff_over_exp_NdV": 3.4205856208648044,
+     "Ethr_over_exp_NdV": 1.30562972355508,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 7549.890930138521,
+      "stored_n_exit": 1035,
+      "new_Etau_at_stored_horizon": 7938.396680137665,
+      "new_n_exit": 1014,
+      "log_ratio": 0.050178208597537265,
+      "z": 1.1356207668811014
+     },
+     "off_at_stored_horizon": {
+      "Etau": 20073.77094113465,
+      "n_exit": 539,
+      "ratio_to_full": 0.9812721111933426
+     },
+     "attempts": {
+      "total": 3933,
+      "returned_to_on": 2433,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.6186117467581999,
+      "retry_fraction_ci": [
+       0.6033224449653894,
+       0.633669564060323
+      ],
+      "success_prob": 0.38138825324180015,
+      "success_prob_ci": [
+       0.36633043593967707,
+       0.39667755503461055
+      ],
+      "first_entry_returned_fraction": 0.5953333333333334,
+      "first_entry_returned_ci": [
+       0.5702810587004493,
+       0.6198985453216764
+      ],
+      "mean_attempts_per_traj": 2.622,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.9382616131601456,
+     "small_minus_large_mean": 1.2110071941051852,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": 0.02783211080567427,
+       "q25": 0.1369230198965834,
+       "q50": 0.23692301989658326,
+       "q75": 0.3460139289874924,
+       "q95": 0.5187412017147652
+      },
+      "mean_w_minus_wstar": 0.24789271686628028,
+      "frac_above_wstar": 0.9726666666666667,
+      "frac_below_wstar_first_entry": 0.027333333333333334,
+      "frac_below_wstar_first_entry_ci": [
+       0.020211722678338366,
+       0.03686982101615712
+      ],
+      "frac_below_wstar_all_attempts": 0.03534197813374015,
+      "X_at_entry_values": [
+       61
+      ],
+      "success_prob_attempts_above_wstar": 0.3726937269372694,
+      "success_prob_attempts_at_or_below_wstar": 0.6187050359712231,
+      "n_attempts_above": 3794,
+      "n_attempts_at_or_below": 139
+     },
+     "lattice": {
+      "threshold_count": 61,
+      "threshold_density": 0.5545454545454546,
+      "large_rect_counts": [
+       33,
+       77
+      ],
+      "small_rect_counts": [
+       16,
+       38
+      ],
+      "n_lattice_points_small_rect": 663
+     }
+    }
+   ],
+   "fits": {
+    "thr": {
+     "slope": 0.08772650643515534,
+     "se_nominal": 0.0047052980505993,
+     "se": 0.011327072147867432,
+     "b_logN": -1.0377083512276706,
+     "a": 4.188448678635649,
+     "chi2_red": 5.795101629998884,
+     "dof": 2,
+     "ci95_regression": [
+      0.06552544502533517,
+      0.10992756784497551
+     ],
+     "linear_model": {
+      "slope": 0.0741919922716802,
+      "se": 0.0014046255106358897,
+      "a": 0.7628248278134572,
+      "chi2_red": 6.658783284810835,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.06987831223299185,
+      "se_nominal": 0.009872124014632661,
+      "se": 0.02678376964131535,
+      "b_logN": 0.5327816376576487,
+      "a": -1.246310369659709,
+      "chi2_red": 7.360752200220426,
+      "dof": 1
+     },
+     "bootstrap_se": 0.004615129578268399,
+     "ci95_bootstrap": [
+      0.07843779729157076,
+      0.09666936881087598
+     ]
+    },
+    "off": {
+     "slope": 0.08370482548652013,
+     "se_nominal": 0.004706487808082067,
+     "se": 0.005044736855633004,
+     "b_logN": -0.49938604550739596,
+     "a": 3.070153038511847,
+     "chi2_red": 1.1489024586692187,
+     "dof": 2,
+     "ci95_regression": [
+      0.07381714124947944,
+      0.09359250972356081
+     ],
+     "linear_model": {
+      "slope": 0.07719185180930493,
+      "se": 0.0006471991860991095,
+      "a": 1.421575874110134,
+      "chi2_red": 1.4129212430426172,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.07270241170763687,
+      "se_nominal": 0.009873178353246206,
+      "se": 0.009873178353246206,
+      "b_logN": 0.4687247621424492,
+      "a": -0.280032044571115,
+      "chi2_red": 0.6908047672161864,
+      "dof": 1
+     },
+     "bootstrap_se": 0.004712994513489515,
+     "ci95_bootstrap": [
+      0.07395557471667483,
+      0.09280413580466877
+     ]
+    },
+    "small": {
+     "slope": 0.08411926617290255,
+     "se_nominal": 0.004706487808082067,
+     "se": 0.005104712964943142,
+     "b_logN": -0.5389090804408233,
+     "a": 3.21061916859919,
+     "chi2_red": 1.176383103177321,
+     "dof": 2,
+     "ci95_regression": [
+      0.07411402876161399,
+      0.09412450358419111
+     ],
+     "linear_model": {
+      "slope": 0.07709083458796084,
+      "se": 0.0006751733119826598,
+      "a": 1.431568248582425,
+      "chi2_red": 1.537703363993951,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.07290613965905796,
+      "se_nominal": 0.009873178353246206,
+      "se": 0.009873178353246206,
+      "b_logN": 0.4477425019994617,
+      "a": -0.2037269863785472,
+      "chi2_red": 0.6836237118184899,
+      "dof": 1
+     },
+     "bootstrap_se": 0.004702876193513724,
+     "ci95_bootstrap": [
+      0.07437215578703606,
+      0.09322216118145263
+     ]
+    }
+   },
+   "slope_differences": {
+    "off_minus_thr": {
+     "estimate": -0.004021680948635212,
+     "bootstrap_se": 0.005061058032974664,
+     "ci95_bootstrap": [
+      -0.014276645685701757,
+      0.005702169240803795
+     ],
+     "corr_bootstrap": 0.41141473392142736,
+     "linear_model_estimate": 0.00299985953762473,
+     "linear_model_ci95_bootstrap": [
+      0.0018574551364645014,
+      0.004174623188735699
+     ]
+    },
+    "small_minus_off": {
+     "estimate": 0.00041444068638242515,
+     "bootstrap_se": 4.741267202178346e-05,
+     "ci95_bootstrap": [
+      0.0003396033650235792,
+      0.0005200660417628905
+     ],
+     "corr_bootstrap": 0.9999515989868004,
+     "linear_model_estimate": -0.00010101722134409075,
+     "linear_model_ci95_bootstrap": [
+      -0.00011662230139324673,
+      -9.013665489154069e-05
+     ]
+    },
+    "small_minus_thr": {
+     "estimate": -0.0036072402622527866,
+     "bootstrap_se": 0.005054734160499018,
+     "ci95_bootstrap": [
+      -0.013840890078416055,
+      0.006117332080807086
+     ],
+     "corr_bootstrap": 0.4115788056027142,
+     "linear_model_estimate": 0.0028988423162806393,
+     "linear_model_ci95_bootstrap": [
+      0.0017592124042017261,
+      0.004074768899946636
+     ]
+    }
+   },
+   "off_thr_ratio": {
+    "log_ratio_by_N": {
+     "50": 0.7810879766211861,
+     "65": 0.891409016008437,
+     "80": 0.8808866273062855,
+     "95": 0.9772328452537165,
+     "110": 0.963126299414713
+    },
+    "linear_in_N": {
+     "slope": 0.0029993364988822203,
+     "ci95_bootstrap": [
+      0.0018567631849062663,
+      0.00417391614464883
+     ],
+     "rss": 0.0042801630651009845
+    },
+    "linear_in_logN": {
+     "coef": 0.234090078735345,
+     "ci95_bootstrap": [
+      0.1462851186061354,
+      0.3237922867092791
+     ],
+     "rss": 0.003262607957919111
+    },
+    "note": "unweighted OLS; bootstrap = sampling error only; the two forms are not distinguishable over this N range unless rss differ clearly"
+   },
+   "vs_saddle": {
+    "thr": {
+     "diff": 0.008669569894813364,
+     "z_regression": 0.7653848921979012,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "off": {
+     "diff": 0.0046478889461781525,
+     "z_regression": 0.9213342695939181,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "small": {
+     "diff": 0.005062329632560578,
+     "z_regression": 0.991697215362816,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    }
+   },
+   "core_secs": 1662.4414277076721
+  },
+  "4": {
+   "saddle_dV_num": 0.07031284005831472,
+   "Ns": [
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "points": [
+    {
+     "N": 50,
+     "n_rep": 1500,
+     "horizon": 1009.1254913054534,
+     "core_secs": 4.826610088348389,
+     "total_events": 224292217.0,
+     "thr": {
+      "Etau": 69.64883195708424,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.0007650696790589325,
+      "naive_mean_observed_only": 69.64883195708424
+     },
+     "off": {
+      "Etau": 117.67739904535091,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.28304913500185824,
+      "naive_mean_observed_only": 117.67739904535091
+     },
+     "small": {
+      "Etau": 118.79752998776235,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.30688612075233573,
+      "naive_mean_observed_only": 118.79752998776235
+     },
+     "Eoff_over_Ethr": 1.689581802575822,
+     "Eoff_over_exp_NdV": 3.4983973765180907,
+     "Ethr_over_exp_NdV": 2.0705699902689947,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 68.14886402672019,
+      "stored_n_exit": 790,
+      "new_Etau_at_stored_horizon": 69.9573255111978,
+      "new_n_exit": 780,
+      "log_ratio": 0.026190931308284152,
+      "z": 0.5188740632267634
+     },
+     "off_at_stored_horizon": {
+      "Etau": 118.80767553342314,
+      "n_exit": 527,
+      "ratio_to_full": 1.0096048731297727
+     },
+     "attempts": {
+      "total": 2497,
+      "returned_to_on": 997,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.39927913496195433,
+      "retry_fraction_ci": [
+       0.38023825187280397,
+       0.4186294573015796
+      ],
+      "success_prob": 0.6007208650380457,
+      "success_prob_ci": [
+       0.5813705426984205,
+       0.6197617481271961
+      ],
+      "first_entry_returned_fraction": 0.3933333333333333,
+      "first_entry_returned_ci": [
+       0.3689149162691217,
+       0.41829671559423404
+      ],
+      "mean_attempts_per_traj": 1.6646666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.959628055186199,
+     "small_minus_large_mean": 1.1201309424114478,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.0776224346488712,
+       "q25": 0.08237756535112872,
+       "q50": 0.22237756535112885,
+       "q75": 0.34737756535112874,
+       "q95": 0.5623775653511287
+      },
+      "mean_w_minus_wstar": 0.22713756535112878,
+      "frac_above_wstar": 0.882,
+      "frac_below_wstar_first_entry": 0.118,
+      "frac_below_wstar_first_entry_ci": [
+       0.10264129684222928,
+       0.13531035976841374
+      ],
+      "frac_below_wstar_all_attempts": 0.1197436924309171,
+      "X_at_entry_values": [
+       27
+      ],
+      "success_prob_attempts_above_wstar": 0.5832575068243858,
+      "success_prob_attempts_at_or_below_wstar": 0.7290969899665551,
+      "n_attempts_above": 2198,
+      "n_attempts_at_or_below": 299
+     },
+     "lattice": {
+      "threshold_count": 27,
+      "threshold_density": 0.54,
+      "large_rect_counts": [
+       15,
+       35
+      ],
+      "small_rect_counts": [
+       7,
+       17
+      ],
+      "n_lattice_points_small_rect": 144
+     }
+    },
+    {
+     "N": 60,
+     "n_rep": 1500,
+     "horizon": 2038.4964589282536,
+     "core_secs": 10.939795732498169,
+     "total_events": 517148990.0,
+     "thr": {
+      "Etau": 131.2922708568162,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.00027105719301704674,
+      "naive_mean_observed_only": 131.2922708568162
+     },
+     "off": {
+      "Etau": 223.60577718584642,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.16476179257793694,
+      "naive_mean_observed_only": 223.60577718584642
+     },
+     "small": {
+      "Etau": 224.5710632194775,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.17134628891432863,
+      "naive_mean_observed_only": 224.5710632194775
+     },
+     "Eoff_over_Ethr": 1.7031145529480927,
+     "Eoff_over_exp_NdV": 3.290745630778401,
+     "Ethr_over_exp_NdV": 1.9321927729888266,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 123.07785603569455,
+      "stored_n_exit": 852,
+      "new_Etau_at_stored_horizon": 132.36853420004945,
+      "new_n_exit": 810,
+      "log_ratio": 0.07277282713103611,
+      "z": 1.4829142691119133
+     },
+     "off_at_stored_horizon": {
+      "Etau": 230.67301117417722,
+      "n_exit": 541,
+      "ratio_to_full": 1.0316057754735781
+     },
+     "attempts": {
+      "total": 2623,
+      "returned_to_on": 1123,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.428135722455204,
+      "retry_fraction_ci": [
+       0.40931812230732656,
+       0.44716351708806
+      ],
+      "success_prob": 0.5718642775447961,
+      "success_prob_ci": [
+       0.5528364829119401,
+       0.5906818776926734
+      ],
+      "first_entry_returned_fraction": 0.42133333333333334,
+      "first_entry_returned_ci": [
+       0.39657706702698187,
+       0.44649151147224303
+      ],
+      "mean_attempts_per_traj": 1.7486666666666666,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.031685319443327,
+     "small_minus_large_mean": 0.9652860336311122,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.05095576798220458,
+       "q25": 0.09904423201779533,
+       "q50": 0.21571089868446203,
+       "q75": 0.3323775653511287,
+       "q95": 0.5323775653511287
+      },
+      "mean_w_minus_wstar": 0.22264423201779543,
+      "frac_above_wstar": 0.8973333333333333,
+      "frac_below_wstar_first_entry": 0.10266666666666667,
+      "frac_below_wstar_first_entry_ci": [
+       0.08830737089501574,
+       0.1190559577959847
+      ],
+      "frac_below_wstar_all_attempts": 0.10484178421654594,
+      "X_at_entry_values": [
+       33
+      ],
+      "success_prob_attempts_above_wstar": 0.5664395229982965,
+      "success_prob_attempts_at_or_below_wstar": 0.6181818181818182,
+      "n_attempts_above": 2348,
+      "n_attempts_at_or_below": 275
+     },
+     "lattice": {
+      "threshold_count": 33,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       18,
+       42
+      ],
+      "small_rect_counts": [
+       9,
+       21
+      ],
+      "n_lattice_points_small_rect": 220
+     }
+    },
+    {
+     "N": 70,
+     "n_rep": 1500,
+     "horizon": 4117.890043276294,
+     "core_secs": 26.51049494743347,
+     "total_events": 1262799671.0,
+     "thr": {
+      "Etau": 234.51571051805504,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 3.550269612256856e-05,
+      "naive_mean_observed_only": 234.51571051805504
+     },
+     "off": {
+      "Etau": 463.54876841773614,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.20800740801264464,
+      "naive_mean_observed_only": 463.54876841773614
+     },
+     "small": {
+      "Etau": 464.56625514328255,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.21209409091917358,
+      "naive_mean_observed_only": 464.56625514328255
+     },
+     "Eoff_over_Ethr": 1.9766213845278744,
+     "Eoff_over_exp_NdV": 3.3770846007019077,
+     "Ethr_over_exp_NdV": 1.7085136420845415,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 232.2231025316825,
+      "stored_n_exit": 890,
+      "new_Etau_at_stored_horizon": 236.26122510515614,
+      "new_n_exit": 882,
+      "log_ratio": 0.01723952049599132,
+      "z": 0.36284623343734296
+     },
+     "off_at_stored_horizon": {
+      "Etau": 456.83221796595944,
+      "n_exit": 549,
+      "ratio_to_full": 0.9855105850573117
+     },
+     "attempts": {
+      "total": 2931,
+      "returned_to_on": 1431,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.4882292732855681,
+      "retry_fraction_ci": [
+       0.4701598885013613,
+       0.5063294729687774
+      ],
+      "success_prob": 0.5117707267144319,
+      "success_prob_ci": [
+       0.49367052703122266,
+       0.5298401114986387
+      ],
+      "first_entry_returned_fraction": 0.492,
+      "first_entry_returned_ci": [
+       0.46675251150864255,
+       0.5172883608811091
+      ],
+      "mean_attempts_per_traj": 1.954,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.1968552378453454,
+     "small_minus_large_mean": 1.0174867255464273,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.0319081489345856,
+       "q25": 0.11094899392255742,
+       "q50": 0.21094899392255728,
+       "q75": 0.3252347082082716,
+       "q95": 0.5252347082082716
+      },
+      "mean_w_minus_wstar": 0.2196347082082716,
+      "frac_above_wstar": 0.9166666666666666,
+      "frac_below_wstar_first_entry": 0.08333333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.07038807204905616,
+       0.09840736491717751
+      ],
+      "frac_below_wstar_all_attempts": 0.08802456499488229,
+      "X_at_entry_values": [
+       39
+      ],
+      "success_prob_attempts_above_wstar": 0.500561167227834,
+      "success_prob_attempts_at_or_below_wstar": 0.627906976744186,
+      "n_attempts_above": 2673,
+      "n_attempts_at_or_below": 258
+     },
+     "lattice": {
+      "threshold_count": 39,
+      "threshold_density": 0.5571428571428572,
+      "large_rect_counts": [
+       21,
+       49
+      ],
+      "small_rect_counts": [
+       10,
+       24
+      ],
+      "n_lattice_points_small_rect": 275
+     }
+    },
+    {
+     "N": 80,
+     "n_rep": 1500,
+     "horizon": 8318.394831762063,
+     "core_secs": 58.65422534942627,
+     "total_events": 2794377546.0,
+     "thr": {
+      "Etau": 485.71990059716984,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 5.475243895904754e-05,
+      "naive_mean_observed_only": 485.71990059716984
+     },
+     "off": {
+      "Etau": 891.8641299056032,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.13348648412474168,
+      "naive_mean_observed_only": 891.8641299056032
+     },
+     "small": {
+      "Etau": 892.8399409387727,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.13485416779413448,
+      "naive_mean_observed_only": 892.8399409387727
+     },
+     "Eoff_over_Ethr": 1.8361696294697791,
+     "Eoff_over_exp_NdV": 3.216476788887942,
+     "Ethr_over_exp_NdV": 1.7517318319967785,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 466.5082758252788,
+      "stored_n_exit": 875,
+      "new_Etau_at_stored_horizon": 471.9937024602858,
+      "new_n_exit": 876,
+      "log_ratio": 0.011689882874233138,
+      "z": 0.2445812534424042
+     },
+     "off_at_stored_horizon": {
+      "Etau": 861.2167810139329,
+      "n_exit": 573,
+      "ratio_to_full": 0.9656367513122047
+     },
+     "attempts": {
+      "total": 2743,
+      "returned_to_on": 1243,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.45315348158950053,
+      "retry_fraction_ci": [
+       0.43460252868369736,
+       0.4718354690515925
+      ],
+      "success_prob": 0.5468465184104995,
+      "success_prob_ci": [
+       0.5281645309484075,
+       0.5653974713163026
+      ],
+      "first_entry_returned_fraction": 0.4573333333333333,
+      "first_entry_returned_ci": [
+       0.43226311670131107,
+       0.4826215360440312
+      ],
+      "mean_attempts_per_traj": 1.8286666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.156712117621538,
+     "small_minus_large_mean": 0.9758110331695771,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.06762243464887119,
+       "q25": 0.06987756535112877,
+       "q50": 0.1823775653511288,
+       "q75": 0.2823775653511287,
+       "q95": 0.4323775653511288
+      },
+      "mean_w_minus_wstar": 0.18086923201779545,
+      "frac_above_wstar": 0.8946666666666667,
+      "frac_below_wstar_first_entry": 0.10533333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.0907931983789662,
+       0.12188983951545034
+      ],
+      "frac_below_wstar_all_attempts": 0.11009843237331389,
+      "X_at_entry_values": [
+       44
+      ],
+      "success_prob_attempts_above_wstar": 0.5358459647685375,
+      "success_prob_attempts_at_or_below_wstar": 0.6357615894039735,
+      "n_attempts_above": 2441,
+      "n_attempts_at_or_below": 302
+     },
+     "lattice": {
+      "threshold_count": 44,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       24,
+       56
+      ],
+      "small_rect_counts": [
+       12,
+       28
+      ],
+      "n_lattice_points_small_rect": 377
+     }
+    },
+    {
+     "N": 90,
+     "n_rep": 1500,
+     "horizon": 16803.67660376671,
+     "core_secs": 133.78890585899353,
+     "total_events": 6355542820.0,
+     "thr": {
+      "Etau": 894.0869574324898,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.0324298328480519e-05,
+      "naive_mean_observed_only": 894.0869574324898
+     },
+     "off": {
+      "Etau": 1793.5474031279484,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.12799793696322884,
+      "naive_mean_observed_only": 1793.5474031279484
+     },
+     "small": {
+      "Etau": 1794.5723499695398,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.12868468473531638,
+      "naive_mean_observed_only": 1794.5723499695398
+     },
+     "Eoff_over_Ethr": 2.006010028687142,
+     "Eoff_over_exp_NdV": 3.2020624630312873,
+     "Ethr_over_exp_NdV": 1.596234523875694,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 878.3326935969586,
+      "stored_n_exit": 926,
+      "new_Etau_at_stored_horizon": 897.0114810468256,
+      "new_n_exit": 913,
+      "log_ratio": 0.021043217405711752,
+      "z": 0.45119279883131114
+     },
+     "off_at_stored_horizon": {
+      "Etau": 1777.9908654606288,
+      "n_exit": 567,
+      "ratio_to_full": 0.9913263861104596
+     },
+     "attempts": {
+      "total": 2967,
+      "returned_to_on": 1467,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.49443882709807885,
+      "retry_fraction_ci": [
+       0.4764672680748345,
+       0.5124247684443792
+      ],
+      "success_prob": 0.5055611729019212,
+      "success_prob_ci": [
+       0.48757523155562066,
+       0.5235327319251654
+      ],
+      "first_entry_returned_fraction": 0.49866666666666665,
+      "first_entry_returned_ci": [
+       0.47339901098629894,
+       0.523941134411993
+      ],
+      "mean_attempts_per_traj": 1.978,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.1778314814319466,
+     "small_minus_large_mean": 1.024946841590943,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.03984465687109351,
+       "q25": 0.08237756535112872,
+       "q50": 0.17126645424001774,
+       "q75": 0.2712664542400176,
+       "q95": 0.43793312090668435
+      },
+      "mean_w_minus_wstar": 0.18301460238816578,
+      "frac_above_wstar": 0.92,
+      "frac_below_wstar_first_entry": 0.08,
+      "frac_below_wstar_first_entry_ci": [
+       0.0673192058995158,
+       0.09482659456244776
+      ],
+      "frac_below_wstar_all_attempts": 0.08796764408493428,
+      "X_at_entry_values": [
+       50
+      ],
+      "success_prob_attempts_above_wstar": 0.49002217294900224,
+      "success_prob_attempts_at_or_below_wstar": 0.6666666666666666,
+      "n_attempts_above": 2706,
+      "n_attempts_at_or_below": 261
+     },
+     "lattice": {
+      "threshold_count": 50,
+      "threshold_density": 0.5555555555555556,
+      "large_rect_counts": [
+       27,
+       63
+      ],
+      "small_rect_counts": [
+       13,
+       31
+      ],
+      "n_lattice_points_small_rect": 448
+     }
+    },
+    {
+     "N": 100,
+     "n_rep": 1500,
+     "horizon": 33944.47524008243,
+     "core_secs": 288.4022123813629,
+     "total_events": 13771175601.0,
+     "thr": {
+      "Etau": 1807.1579979606665,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.0437282300144288e-05,
+      "naive_mean_observed_only": 1807.1579979606665
+     },
+     "off": {
+      "Etau": 3483.4874010269573,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.08793353389695997,
+      "naive_mean_observed_only": 3483.4874010269573
+     },
+     "small": {
+      "Etau": 3484.468258906536,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.08817506592264943,
+      "naive_mean_observed_only": 3484.468258906536
+     },
+     "Eoff_over_Ethr": 1.9276053366434962,
+     "Eoff_over_exp_NdV": 3.078693109605277,
+     "Ethr_over_exp_NdV": 1.5971594657266042,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 1808.0770191316267,
+      "stored_n_exit": 911,
+      "new_Etau_at_stored_horizon": 1770.4031625967968,
+      "new_n_exit": 926,
+      "log_ratio": -0.02105656401263869,
+      "z": -0.4512296286870295
+     },
+     "off_at_stored_horizon": {
+      "Etau": 3274.4427776055772,
+      "n_exit": 607,
+      "ratio_to_full": 0.9399898436952141
+     },
+     "attempts": {
+      "total": 2818,
+      "returned_to_on": 1318,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.46770759403832507,
+      "retry_fraction_ci": [
+       0.44934157531426944,
+       0.48616153726299216
+      ],
+      "success_prob": 0.5322924059616749,
+      "success_prob_ci": [
+       0.5138384627370077,
+       0.5506584246857306
+      ],
+      "first_entry_returned_fraction": 0.45466666666666666,
+      "first_entry_returned_ci": [
+       0.42961513839419246,
+       0.4799498051477337
+      ],
+      "mean_attempts_per_traj": 1.8786666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.2494536092724466,
+     "small_minus_large_mean": 0.9808578795783772,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.05762243464887118,
+       "q25": 0.07237756535112871,
+       "q50": 0.15237756535112879,
+       "q75": 0.23237756535112886,
+       "q95": 0.37237756535112876
+      },
+      "mean_w_minus_wstar": 0.15339756535112875,
+      "frac_above_wstar": 0.892,
+      "frac_below_wstar_first_entry": 0.108,
+      "frac_below_wstar_first_entry_ci": [
+       0.09328210487383559,
+       0.12472064222399706
+      ],
+      "frac_below_wstar_all_attempts": 0.10752306600425834,
+      "X_at_entry_values": [
+       55
+      ],
+      "success_prob_attempts_above_wstar": 0.5133200795228628,
+      "success_prob_attempts_at_or_below_wstar": 0.6897689768976898,
+      "n_attempts_above": 2515,
+      "n_attempts_at_or_below": 303
+     },
+     "lattice": {
+      "threshold_count": 55,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       30,
+       70
+      ],
+      "small_rect_counts": [
+       15,
+       35
+      ],
+      "n_lattice_points_small_rect": 576
+     }
+    },
+    {
+     "N": 110,
+     "n_rep": 1500,
+     "horizon": 68569.9580213467,
+     "core_secs": 661.7103357315063,
+     "total_events": 30883767607.0,
+     "thr": {
+      "Etau": 3662.9362086586925,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 1.112047136423839e-05,
+      "naive_mean_observed_only": 3662.9362086586925
+     },
+     "off": {
+      "Etau": 7079.356633333779,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.09323033756206495,
+      "naive_mean_observed_only": 7079.356633333779
+     },
+     "small": {
+      "Etau": 7080.372646112013,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.09336000838028115,
+      "naive_mean_observed_only": 7080.372646112013
+     },
+     "Eoff_over_Ethr": 1.9326999516396504,
+     "Eoff_over_exp_NdV": 3.097284949976148,
+     "Ethr_over_exp_NdV": 1.6025689592160932,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 3579.4734441156743,
+      "stored_n_exit": 926,
+      "new_Etau_at_stored_horizon": 3717.3477806885658,
+      "new_n_exit": 902,
+      "log_ratio": 0.037794744880516505,
+      "z": 0.8078897247871695
+     },
+     "off_at_stored_horizon": {
+      "Etau": 7288.837926772199,
+      "n_exit": 565,
+      "ratio_to_full": 1.029590442223529
+     },
+     "attempts": {
+      "total": 2905,
+      "returned_to_on": 1405,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.4836488812392427,
+      "retry_fraction_ci": [
+       0.46550971648354766,
+       0.5018312346359634
+      ],
+      "success_prob": 0.5163511187607573,
+      "success_prob_ci": [
+       0.49816876536403676,
+       0.5344902835164524
+      ],
+      "first_entry_returned_fraction": 0.49266666666666664,
+      "first_entry_returned_ci": [
+       0.46741695976367625,
+       0.5179538399269294
+      ],
+      "mean_attempts_per_traj": 1.9366666666666668,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 2.2364822183323807,
+     "small_minus_large_mean": 1.0160127782340813,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.05398607101250752,
+       "q25": 0.06419574716931065,
+       "q50": 0.15510483807840147,
+       "q75": 0.23692301989658326,
+       "q95": 0.37328665626021973
+      },
+      "mean_w_minus_wstar": 0.153819989593553,
+      "frac_above_wstar": 0.8966666666666666,
+      "frac_below_wstar_first_entry": 0.10333333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.08892853343852168,
+       0.11976472255333277
+      ],
+      "frac_below_wstar_all_attempts": 0.09604130808950086,
+      "X_at_entry_values": [
+       61
+      ],
+      "success_prob_attempts_above_wstar": 0.5019040365575019,
+      "success_prob_attempts_at_or_below_wstar": 0.6523297491039427,
+      "n_attempts_above": 2626,
+      "n_attempts_at_or_below": 279
+     },
+     "lattice": {
+      "threshold_count": 61,
+      "threshold_density": 0.5545454545454546,
+      "large_rect_counts": [
+       33,
+       77
+      ],
+      "small_rect_counts": [
+       16,
+       38
+      ],
+      "n_lattice_points_small_rect": 663
+     }
+    }
+   ],
+   "fits": {
+    "thr": {
+     "slope": 0.07931655264692816,
+     "se_nominal": 0.004313760409784738,
+     "se": 0.005096644664696832,
+     "b_logN": -1.0275355563264807,
+     "a": 4.304101124795207,
+     "chi2_red": 1.3959075978239006,
+     "dof": 4,
+     "ci95_regression": [
+      0.06932712910412236,
+      0.08930597618973396
+     ],
+     "linear_model": {
+      "slope": 0.0659646904642648,
+      "se": 0.0008532272552616845,
+      "a": 0.9035934279173966,
+      "chi2_red": 3.057586346309829,
+      "dof": 5
+     },
+     "drop_smallest_N": {
+      "slope": 0.08275227163386858,
+      "se_nominal": 0.006998079287916571,
+      "se": 0.00920886487527036,
+      "b_logN": -1.3237418320192273,
+      "a": 5.322926568434197,
+      "chi2_red": 1.731627537017581,
+      "dof": 3
+     },
+     "bootstrap_se": 0.004140330117115076,
+     "ci95_bootstrap": [
+      0.07155071949914657,
+      0.08761862449538121
+     ]
+    },
+    "off": {
+     "slope": 0.07021961105790105,
+     "se_nominal": 0.004313760409784738,
+     "se": 0.004313760409784738,
+     "b_logN": -0.1444804605447744,
+     "a": 1.8140110990743208,
+     "chi2_red": 0.6094656418917731,
+     "dof": 4,
+     "ci95_regression": [
+      0.06176464065472296,
+      0.07867458146107914
+     ],
+     "linear_model": {
+      "slope": 0.06834222279098974,
+      "se": 0.00048795003647426655,
+      "a": 1.3358700604445568,
+      "chi2_red": 0.5259448979086129,
+      "dof": 5
+     },
+     "drop_smallest_N": {
+      "slope": 0.06604454996051631,
+      "se_nominal": 0.006998079287916571,
+      "se": 0.006998079287916571,
+      "b_logN": 0.21546728347790267,
+      "a": 0.5759417194401233,
+      "chi2_red": 0.6212670659635211,
+      "dof": 3
+     },
+     "bootstrap_se": 0.004004970287428827,
+     "ci95_bootstrap": [
+      0.06263915295120151,
+      0.07816622737345418
+     ]
+    },
+    "small": {
+     "slope": 0.07075629835067399,
+     "se_nominal": 0.004313760409784738,
+     "se": 0.004313760409784738,
+     "b_logN": -0.19613490122834906,
+     "a": 1.9982970102779847,
+     "chi2_red": 0.6199551440370569,
+     "dof": 4,
+     "ci95_regression": [
+      0.0623013279474959,
+      0.07921126875385207
+     ],
+     "linear_model": {
+      "slope": 0.06820770900572379,
+      "se": 0.00048795003647426655,
+      "a": 1.3492116943033272,
+      "chi2_red": 0.5666789146542252,
+      "dof": 5
+     },
+     "drop_smallest_N": {
+      "slope": 0.06636306917756249,
+      "se_nominal": 0.006998079287916571,
+      "se": 0.006998079287916571,
+      "b_logN": 0.18262193440853014,
+      "a": 0.695532238679308,
+      "chi2_red": 0.6147321515557712,
+      "dof": 3
+     },
+     "bootstrap_se": 0.003991809869527417,
+     "ci95_bootstrap": [
+      0.06312806935285976,
+      0.07865620716852302
+     ]
+    }
+   },
+   "slope_differences": {
+    "off_minus_thr": {
+     "estimate": -0.009096941589027116,
+     "bootstrap_se": 0.0038539928464538897,
+     "ci95_bootstrap": [
+      -0.016533778649541794,
+      -0.001362232435277188
+     ],
+     "corr_bootstrap": 0.5526767323729701,
+     "linear_model_estimate": 0.0023775323267249404,
+     "linear_model_ci95_bootstrap": [
+      0.0015342861204317563,
+      0.0032252151246658037
+     ]
+    },
+    "small_minus_off": {
+     "estimate": 0.0005366872927729388,
+     "bootstrap_se": 7.67137431269652e-05,
+     "ci95_bootstrap": [
+      0.00043168962142183935,
+      0.0007184519824273111
+     ],
+     "corr_bootstrap": 0.9998213619430938,
+     "linear_model_estimate": -0.00013451378526595226,
+     "linear_model_ci95_bootstrap": [
+      -0.00015639072806970938,
+      -0.00012181864732181832
+     ]
+    },
+    "small_minus_thr": {
+     "estimate": -0.008560254296254177,
+     "bootstrap_se": 0.0038490452727929594,
+     "ci95_bootstrap": [
+      -0.015982313361133236,
+      -0.0008914666347155672
+     ],
+     "corr_bootstrap": 0.5524679702080385,
+     "linear_model_estimate": 0.002243018541458988,
+     "linear_model_ci95_bootstrap": [
+      0.0014050308455119264,
+      0.003085545311431784
+     ]
+    }
+   },
+   "off_thr_ratio": {
+    "log_ratio_by_N": {
+     "50": 0.5244810442160185,
+     "60": 0.5324586648018321,
+     "70": 0.6813890157458401,
+     "80": 0.6076816787092804,
+     "90": 0.6961476888727814,
+     "100": 0.6562784743232131,
+     "110": 0.6589179639871138
+    },
+    "linear_in_N": {
+     "slope": 0.0023775323267249612,
+     "ci95_bootstrap": [
+      0.001534286120431706,
+      0.003225215124665823
+     ],
+     "rss": 0.013466441139523102
+    },
+    "linear_in_logN": {
+     "coef": 0.1919282044197881,
+     "ci95_bootstrap": [
+      0.12634140205565786,
+      0.2551722885380088
+     ],
+     "rss": 0.011653090975165719
+    },
+    "note": "unweighted OLS; bootstrap = sampling error only; the two forms are not distinguishable over this N range unless rss differ clearly"
+   },
+   "vs_saddle": {
+    "thr": {
+     "diff": 0.009003712588613447,
+     "z_regression": 1.7665961001715276,
+     "saddle_in_bootstrap_ci": false,
+     "saddle_in_regression_ci": true
+    },
+    "off": {
+     "diff": -9.322900041366933e-05,
+     "z_regression": -0.021612002419559868,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "small": {
+     "diff": 0.0004434582923592695,
+     "z_regression": 0.10280086287439376,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    }
+   },
+   "core_secs": 1184.832580089569
+  },
+  "8": {
+   "saddle_dV_num": 0.06584251364050381,
+   "Ns": [
+    60,
+    80,
+    100,
+    120,
+    140
+   ],
+   "points": [
+    {
+     "N": 60,
+     "n_rep": 1500,
+     "horizon": 1558.9194501639338,
+     "core_secs": 13.287593364715576,
+     "total_events": 643123232.0,
+     "thr": {
+      "Etau": 97.86963400117149,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.00018130858072952185,
+      "naive_mean_observed_only": 97.86963400117149
+     },
+     "off": {
+      "Etau": 157.5788503682283,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.07579460938320505,
+      "naive_mean_observed_only": 157.5788503682283
+     },
+     "small": {
+      "Etau": 158.47932682358766,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.08017716229373505,
+      "naive_mean_observed_only": 158.47932682358766
+     },
+     "Eoff_over_Ethr": 1.6100892986515316,
+     "Eoff_over_exp_NdV": 3.0324629733433155,
+     "Ethr_over_exp_NdV": 1.8834129112484868,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 96.53102678075292,
+      "stored_n_exit": 838,
+      "new_Etau_at_stored_horizon": 99.38847231225253,
+      "new_n_exit": 815,
+      "log_ratio": 0.029171656511218443,
+      "z": 0.5929601098763739
+     },
+     "off_at_stored_horizon": {
+      "Etau": 166.9042873315963,
+      "n_exit": 563,
+      "ratio_to_full": 1.059179496116239
+     },
+     "attempts": {
+      "total": 2372,
+      "returned_to_on": 872,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.3676222596964587,
+      "retry_fraction_ci": [
+       0.34844696888055043,
+       0.3872256449839429
+      ],
+      "success_prob": 0.6323777403035413,
+      "success_prob_ci": [
+       0.6127743550160571,
+       0.6515530311194495
+      ],
+      "first_entry_returned_fraction": 0.37733333333333335,
+      "first_entry_returned_ci": [
+       0.35314585018585704,
+       0.4021475264570022
+      ],
+      "mean_attempts_per_traj": 1.5813333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.6703034254796958,
+     "small_minus_large_mean": 0.9004764553593047,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.10095576798220462,
+       "q25": 0.0448775653511288,
+       "q50": 0.14904423201779538,
+       "q75": 0.26571089868446207,
+       "q95": 0.4165442320177948
+      },
+      "mean_w_minus_wstar": 0.1532331209066843,
+      "frac_above_wstar": 0.8113333333333334,
+      "frac_below_wstar_first_entry": 0.18866666666666668,
+      "frac_below_wstar_first_entry_ci": [
+       0.16967163586102718,
+       0.20925231464014266
+      ],
+      "frac_below_wstar_all_attempts": 0.1905564924114671,
+      "X_at_entry_values": [
+       33
+      ],
+      "success_prob_attempts_above_wstar": 0.625,
+      "success_prob_attempts_at_or_below_wstar": 0.6637168141592921,
+      "n_attempts_above": 1920,
+      "n_attempts_at_or_below": 452
+     },
+     "lattice": {
+      "threshold_count": 33,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       18,
+       42
+      ],
+      "small_rect_counts": [
+       9,
+       21
+      ],
+      "n_lattice_points_small_rect": 220
+     }
+    },
+    {
+     "N": 80,
+     "n_rep": 1500,
+     "horizon": 5817.340473108387,
+     "core_secs": 63.42067861557007,
+     "total_events": 3083389025.0,
+     "thr": {
+      "Etau": 337.1531752275236,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 4.815551004788831e-05,
+      "naive_mean_observed_only": 337.1531752275236
+     },
+     "off": {
+      "Etau": 558.729426016651,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.04511634908274008,
+      "naive_mean_observed_only": 554.8486118251177
+     },
+     "small": {
+      "Etau": 559.6351501600903,
+      "n_exit": 1499,
+      "censored_frac": 0.0006666666666667043,
+      "se_log": 0.025828499910081303,
+      "expected_censored_if_exponential": 0.045883025374784114,
+      "naive_mean_observed_only": 555.7543359685571
+     },
+     "Eoff_over_Ethr": 1.6571975798228786,
+     "Eoff_over_exp_NdV": 2.881365266135632,
+     "Ethr_over_exp_NdV": 1.7386974861763873,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 335.84219030158306,
+      "stored_n_exit": 869,
+      "new_Etau_at_stored_horizon": 336.79855003183724,
+      "new_n_exit": 867,
+      "log_ratio": 0.0028435993163651208,
+      "z": 0.05923971734735903
+     },
+     "off_at_stored_horizon": {
+      "Etau": 528.1441944982648,
+      "n_exit": 638,
+      "ratio_to_full": 0.9452593149846475
+     },
+     "attempts": {
+      "total": 2453,
+      "returned_to_on": 954,
+      "reached_off": 1499,
+      "censored": 0,
+      "retry_fraction": 0.3889115368935997,
+      "retry_fraction_ci": [
+       0.3698072117976061,
+       0.4083632652897242
+      ],
+      "success_prob": 0.6110884631064003,
+      "success_prob_ci": [
+       0.5916367347102758,
+       0.6301927882023939
+      ],
+      "first_entry_returned_fraction": 0.3933333333333333,
+      "first_entry_returned_ci": [
+       0.3689149162691217,
+       0.41829671559423404
+      ],
+      "mean_attempts_per_traj": 1.6353333333333333,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.7792886676199895,
+     "small_minus_large_mean": 0.9057241434393895,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.09262243464887132,
+       "q25": 0.03237756535112868,
+       "q50": 0.11987756535112881,
+       "q75": 0.20737756535112872,
+       "q95": 0.3448775653511287
+      },
+      "mean_w_minus_wstar": 0.12192756535112877,
+      "frac_above_wstar": 0.8106666666666666,
+      "frac_below_wstar_first_entry": 0.18933333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.17030992340148873,
+       0.20994395440053507
+      ],
+      "frac_below_wstar_all_attempts": 0.2009783938035059,
+      "X_at_entry_values": [
+       44
+      ],
+      "success_prob_attempts_above_wstar": 0.5933673469387755,
+      "success_prob_attempts_at_or_below_wstar": 0.6815415821501014,
+      "n_attempts_above": 1960,
+      "n_attempts_at_or_below": 493
+     },
+     "lattice": {
+      "threshold_count": 44,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       24,
+       56
+      ],
+      "small_rect_counts": [
+       12,
+       28
+      ],
+      "n_lattice_points_small_rect": 377
+     }
+    },
+    {
+     "N": 100,
+     "n_rep": 1500,
+     "horizon": 21708.273751094832,
+     "core_secs": 291.54136514663696,
+     "total_events": 14244258984.0,
+     "thr": {
+      "Etau": 1210.7180023580418,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.4499393819791018e-05,
+      "naive_mean_observed_only": 1210.7180023580418
+     },
+     "off": {
+      "Etau": 2043.13831760013,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.03645251135005676,
+      "naive_mean_observed_only": 2043.13831760013
+     },
+     "small": {
+      "Etau": 2044.0659869276453,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.03662870926373133,
+      "naive_mean_observed_only": 2044.0659869276453
+     },
+     "Eoff_over_Ethr": 1.6875426925352013,
+     "Eoff_over_exp_NdV": 2.823538630054018,
+     "Ethr_over_exp_NdV": 1.6731657471801236,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 1240.9680436932933,
+      "stored_n_exit": 882,
+      "new_Etau_at_stored_horizon": 1237.3711710320877,
+      "new_n_exit": 874,
+      "log_ratio": -0.0029026496173329666,
+      "z": -0.06081663233729335
+     },
+     "off_at_stored_horizon": {
+      "Etau": 2099.8341438404254,
+      "n_exit": 608,
+      "ratio_to_full": 1.0277493822869959
+     },
+     "attempts": {
+      "total": 2511,
+      "returned_to_on": 1011,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.4026284348864994,
+      "retry_fraction_ci": [
+       0.3836086683206938,
+       0.42194568548035677
+      ],
+      "success_prob": 0.5973715651135006,
+      "success_prob_ci": [
+       0.5780543145196433,
+       0.6163913316793064
+      ],
+      "first_entry_returned_fraction": 0.406,
+      "first_entry_returned_ci": [
+       0.381418421625769,
+       0.4310618289538134
+      ],
+      "mean_attempts_per_traj": 1.674,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.8196206052274666,
+     "small_minus_large_mean": 0.9276693275152611,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.0876224346488712,
+       "q25": 0.02237756535112867,
+       "q50": 0.10237756535112874,
+       "q75": 0.1823775653511288,
+       "q95": 0.30287756535112825
+      },
+      "mean_w_minus_wstar": 0.10128423201779543,
+      "frac_above_wstar": 0.81,
+      "frac_below_wstar_first_entry": 0.19,
+      "frac_below_wstar_first_entry_ci": [
+       0.17094830387138568,
+       0.2106355012314922
+      ],
+      "frac_below_wstar_all_attempts": 0.19275189167662285,
+      "X_at_entry_values": [
+       55
+      ],
+      "success_prob_attempts_above_wstar": 0.5777010360138135,
+      "success_prob_attempts_at_or_below_wstar": 0.6797520661157025,
+      "n_attempts_above": 2027,
+      "n_attempts_at_or_below": 484
+     },
+     "lattice": {
+      "threshold_count": 55,
+      "threshold_density": 0.55,
+      "large_rect_counts": [
+       30,
+       70
+      ],
+      "small_rect_counts": [
+       15,
+       35
+      ],
+      "n_lattice_points_small_rect": 576
+     }
+    },
+    {
+     "N": 120,
+     "n_rep": 1500,
+     "horizon": 81007.66173664738,
+     "core_secs": 1328.1139211654663,
+     "total_events": 60401266305.0,
+     "thr": {
+      "Etau": 3968.350875450594,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 2.0447973637607484e-06,
+      "naive_mean_observed_only": 3968.350875450594
+     },
+     "off": {
+      "Etau": 7176.805554769777,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.01879422513994283,
+      "naive_mean_observed_only": 7176.805554769777
+     },
+     "small": {
+      "Etau": 7177.7259261729305,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.018821446505706357,
+      "naive_mean_observed_only": 7177.7259261729305
+     },
+     "Eoff_over_Ethr": 1.8085108348577854,
+     "Eoff_over_exp_NdV": 2.6578247295056907,
+     "Ethr_over_exp_NdV": 1.4696205730582157,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 4060.5342090071254,
+      "stored_n_exit": 946,
+      "new_Etau_at_stored_horizon": 3876.716843402785,
+      "new_n_exit": 969,
+      "log_ratio": -0.04632592248429344,
+      "z": -1.0135545876268433
+     },
+     "off_at_stored_horizon": {
+      "Etau": 7019.27393460158,
+      "n_exit": 657,
+      "ratio_to_full": 0.9780498971351537
+     },
+     "attempts": {
+      "total": 2680,
+      "returned_to_on": 1180,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.44029850746268656,
+      "retry_fraction_ci": [
+       0.42160230341648,
+       0.4591656226787112
+      ],
+      "success_prob": 0.5597014925373134,
+      "success_prob_ci": [
+       0.5408343773212887,
+       0.5783976965835198
+      ],
+      "first_entry_returned_fraction": 0.43933333333333335,
+      "first_entry_returned_ci": [
+       0.4144033856073193,
+       0.46457323001496437
+      ],
+      "mean_attempts_per_traj": 1.7866666666666666,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.9534389317529004,
+     "small_minus_large_mean": 0.9203714031548124,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.059289101315537884,
+       "q25": 0.03237756535112868,
+       "q50": 0.09904423201779533,
+       "q75": 0.1740442320177955,
+       "q95": 0.2740442320177954
+      },
+      "mean_w_minus_wstar": 0.10327756535112877,
+      "frac_above_wstar": 0.832,
+      "frac_below_wstar_first_entry": 0.168,
+      "frac_below_wstar_first_entry_ci": [
+       0.14993301620276064,
+       0.1877631879719344
+      ],
+      "frac_below_wstar_all_attempts": 0.16865671641791044,
+      "X_at_entry_values": [
+       67
+      ],
+      "success_prob_attempts_above_wstar": 0.550718132854578,
+      "success_prob_attempts_at_or_below_wstar": 0.6039823008849557,
+      "n_attempts_above": 2228,
+      "n_attempts_at_or_below": 452
+     },
+     "lattice": {
+      "threshold_count": 67,
+      "threshold_density": 0.5583333333333333,
+      "large_rect_counts": [
+       36,
+       84
+      ],
+      "small_rect_counts": [
+       18,
+       42
+      ],
+      "n_lattice_points_small_rect": 817
+     }
+    },
+    {
+     "N": 140,
+     "n_rep": 1500,
+     "horizon": 302292.1737251511,
+     "core_secs": 11355.289766073227,
+     "total_events": 277839622472.0,
+     "thr": {
+      "Etau": 15806.814521014989,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 7.4228502719560125e-06,
+      "naive_mean_observed_only": 15806.814521014989
+     },
+     "off": {
+      "Etau": 28183.791719259072,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.03295787693444632,
+      "naive_mean_observed_only": 28183.791719259072
+     },
+     "small": {
+      "Etau": 28184.707783789734,
+      "n_exit": 1500,
+      "censored_frac": 0.0,
+      "se_log": 0.025819888974716113,
+      "expected_censored_if_exponential": 0.032969368387414905,
+      "naive_mean_observed_only": 28184.707783789734
+     },
+     "Eoff_over_Ethr": 1.7830152736839562,
+     "Eoff_over_exp_NdV": 2.7970084079865294,
+     "Ethr_over_exp_NdV": 1.5686957084823638,
+     "extinction_before_small_rect": 0,
+     "extinction_before_large_rect": 0,
+     "thr_vs_stored": {
+      "stored_Etau": 14752.882616102732,
+      "stored_n_exit": 969,
+      "new_Etau_at_stored_horizon": 16435.950567106123,
+      "new_n_exit": 905,
+      "log_ratio": 0.10803254812609389,
+      "z": 2.3369854291218677
+     },
+     "off_at_stored_horizon": {
+      "Etau": 29805.635797080886,
+      "n_exit": 598,
+      "ratio_to_full": 1.0575452761635882
+     },
+     "attempts": {
+      "total": 2764,
+      "returned_to_on": 1264,
+      "reached_off": 1500,
+      "censored": 0,
+      "retry_fraction": 0.4573082489146165,
+      "retry_fraction_ci": [
+       0.43880789465648445,
+       0.4759271104102794
+      ],
+      "success_prob": 0.5426917510853835,
+      "success_prob_ci": [
+       0.5240728895897205,
+       0.5611921053435155
+      ],
+      "first_entry_returned_fraction": 0.46266666666666667,
+      "first_entry_returned_ci": [
+       0.4375612469810065,
+       0.487962824171168
+      ],
+      "mean_attempts_per_traj": 1.8426666666666667,
+      "reached_large_without_attempt": 0
+     },
+     "final_descent_time_mean": 1.974529102889595,
+     "small_minus_large_mean": 0.9160645306610149,
+     "first_entry_signal": {
+      "quantiles_w_minus_wstar": {
+       "q05": -0.06762243464887119,
+       "q25": 0.02523470820827156,
+       "q50": 0.08952042249398584,
+       "q75": 0.16094899392255724,
+       "q95": 0.25416327963684276
+      },
+      "mean_w_minus_wstar": 0.09558232725589068,
+      "frac_above_wstar": 0.8326666666666667,
+      "frac_below_wstar_first_entry": 0.16733333333333333,
+      "frac_below_wstar_first_entry_ci": [
+       0.14929792126958225,
+       0.18706835560425872
+      ],
+      "frac_below_wstar_all_attempts": 0.1649782923299566,
+      "X_at_entry_values": [
+       78
+      ],
+      "success_prob_attempts_above_wstar": 0.529896013864818,
+      "success_prob_attempts_at_or_below_wstar": 0.6074561403508771,
+      "n_attempts_above": 2308,
+      "n_attempts_at_or_below": 456
+     },
+     "lattice": {
+      "threshold_count": 78,
+      "threshold_density": 0.5571428571428572,
+      "large_rect_counts": [
+       42,
+       98
+      ],
+      "small_rect_counts": [
+       21,
+       49
+      ],
+      "n_lattice_points_small_rect": 1100
+     }
+    }
+   ],
+   "fits": {
+    "thr": {
+     "slope": 0.06908362838826901,
+     "se_nominal": 0.0032881354631490666,
+     "se": 0.006682024937896054,
+     "b_logN": -0.5628584322547157,
+     "a": 2.750962346598659,
+     "chi2_red": 4.129683628857874,
+     "dof": 2,
+     "ci95_regression": [
+      0.05598685950999274,
+      0.08218039726654527
+     ],
+     "linear_model": {
+      "slope": 0.06317344365934707,
+      "se": 0.0008007182472255015,
+      "a": 0.7741446039361948,
+      "chi2_red": 3.846898268639279,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.0761323413845671,
+      "se_nominal": 0.00696590254183159,
+      "se": 0.018353398994240065,
+      "b_logN": -1.34128288730696,
+      "a": 5.619868194280886,
+      "chi2_red": 6.941897934259338,
+      "dof": 1
+     },
+     "bootstrap_se": 0.003299193958113068,
+     "ci95_bootstrap": [
+      0.06270389650150954,
+      0.07546230231323091
+     ]
+    },
+    "off": {
+     "slope": 0.06972586921785395,
+     "se_nominal": 0.003288307623608994,
+     "se": 0.003666471539003842,
+     "b_logN": -0.4852586408688965,
+     "a": 2.8678168497463155,
+     "chi2_red": 1.2432307906012259,
+     "dof": 2,
+     "ci95_regression": [
+      0.06253958500140643,
+      0.07691215343430148
+     ],
+     "linear_model": {
+      "slope": 0.06463045753011015,
+      "se": 0.0005231050862938368,
+      "a": 1.1635444705458264,
+      "chi2_red": 1.6417241176703465,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.07390428339416599,
+      "se_nominal": 0.006966392516961148,
+      "se": 0.009909852127983098,
+      "b_logN": -0.9467123914010553,
+      "a": 4.568530458898313,
+      "chi2_red": 2.023571091549082,
+      "dof": 1
+     },
+     "bootstrap_se": 0.003315085523191951,
+     "ci95_bootstrap": [
+      0.06308399537047238,
+      0.07636769205442506
+     ]
+    },
+    "small": {
+     "slope": 0.06997141180771434,
+     "se_nominal": 0.003288307623608994,
+     "se": 0.003638829981306182,
+     "b_logN": -0.5147490352819224,
+     "a": 2.979388321455164,
+     "chi2_red": 1.2245559982931409,
+     "dof": 2,
+     "ci95_regression": [
+      0.06283930504435423,
+      0.07710351857107445
+     ],
+     "linear_model": {
+      "slope": 0.06456633906973301,
+      "se": 0.000537152429371746,
+      "a": 1.1715430011116699,
+      "chi2_red": 1.7310809657963917,
+      "dof": 3
+     },
+     "drop_smallest_N": {
+      "slope": 0.07402520984202264,
+      "se_nominal": 0.006966392516961148,
+      "se": 0.009884965065235549,
+      "b_logN": -0.9624404866072448,
+      "a": 4.62938020708168,
+      "chi2_red": 2.0134200815300383,
+      "dof": 1
+     },
+     "bootstrap_se": 0.003309079028973821,
+     "ci95_bootstrap": [
+      0.06334793492924541,
+      0.07659946855906968
+     ]
+    }
+   },
+   "slope_differences": {
+    "off_minus_thr": {
+     "estimate": 0.0006422408295849447,
+     "bootstrap_se": 0.0027721556854589076,
+     "ci95_bootstrap": [
+      -0.004798408469490747,
+      0.005915054013324852
+     ],
+     "corr_bootstrap": 0.6486917242249305,
+     "linear_model_estimate": 0.0014570138707630798,
+     "linear_model_ci95_bootstrap": [
+      0.0007347810719509791,
+      0.0021651705680065677
+     ]
+    },
+    "small_minus_off": {
+     "estimate": 0.00024554258986038413,
+     "bootstrap_se": 1.0611446888302563e-05,
+     "ci95_bootstrap": [
+      0.00022499547570393707,
+      0.00026651024050352684
+     ],
+     "corr_bootstrap": 0.9999965120478808,
+     "linear_model_estimate": -6.411846037714108e-05,
+     "linear_model_ci95_bootstrap": [
+      -6.734076313024071e-05,
+      -6.086027038175006e-05
+     ]
+    },
+    "small_minus_thr": {
+     "estimate": 0.0008877834194453288,
+     "bootstrap_se": 0.0027699756670624505,
+     "ci95_bootstrap": [
+      -0.004554708474246873,
+      0.006161209807008601
+     ],
+     "corr_bootstrap": 0.6486002939343097,
+     "linear_model_estimate": 0.0013928954103859387,
+     "linear_model_ci95_bootstrap": [
+      0.0006706741129879526,
+      0.002099591673729546
+     ]
+    }
+   },
+   "off_thr_ratio": {
+    "log_ratio_by_N": {
+     "60": 0.47628964245919664,
+     "80": 0.5051279708186908,
+     "100": 0.5232734427246457,
+     "120": 0.5925037634663215,
+     "140": 0.5783059051280798
+    },
+    "linear_in_N": {
+     "slope": 0.0014570415899269834,
+     "ci95_bootstrap": [
+      0.0007347286916924879,
+      0.002165221903121325
+     ],
+     "rss": 0.0011669096631308036
+    },
+    "linear_in_logN": {
+     "coef": 0.1378192962765469,
+     "ci95_bootstrap": [
+      0.07173553552480222,
+      0.20542480179583295
+     ],
+     "rss": 0.0011507277607149776
+    },
+    "note": "unweighted OLS; bootstrap = sampling error only; the two forms are not distinguishable over this N range unless rss differ clearly"
+   },
+   "vs_saddle": {
+    "thr": {
+     "diff": 0.0032411147477652003,
+     "z_regression": 0.48504978324515485,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "off": {
+     "diff": 0.003883355577350145,
+     "z_regression": 1.0591533402179985,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    },
+    "small": {
+     "diff": 0.004128898167210529,
+     "z_regression": 1.134677406864839,
+     "saddle_in_bootstrap_ci": true,
+     "saddle_in_regression_ci": true
+    }
+   },
+   "core_secs": 13051.653324365616
+  }
+ }
+}

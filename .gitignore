@@ -4,3 +4,8 @@ __pycache__/
 figures/
 fig_*.pdf
 .DS_Store
+# regenerable traces and raw committor samples, and compiled simulators
+data/basins/*.npy
+data/committor/raw/
+src/collapse_time/ssa_offtarget
+src/committor/ssa_commit

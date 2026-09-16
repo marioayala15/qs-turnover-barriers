@@ -12,16 +12,23 @@ deterministic equilibrium and its stability type unchanged, hence any effect of 
 the rare-event barrier is invisible in the mean-field ODE. The barrier is nevertheless
 `r`-dependent, and this repository computes it.
 
-The quasipotential barrier `DeltaV(r)` against collapse from the cooperative state to
-the unstable threshold is computed twice, by two routes that share no machinery:
+Collapse means the first arrival of the process in a fixed neighbourhood
+`R_off = [0, 0.3] x [0, 0.7]` of the extinction state, which lies in its deterministic
+basin. The quasipotential barrier `DeltaV(r)` is the least action from the cooperative
+state `U_on` to the saddle `U*`; the paper proves that it is also the least interior
+action needed to reach `R_off`. It is computed and tested in three ways:
 
 1. minimization of the Freidlin-Wentzell action, with the signal kept as a fluctuating
    coordinate rather than slaved to `wbar(x) = aC x / kappa`;
-2. exact stochastic simulation, with right-censored collapse times regressed in the
-   population scale `N`, which uses no action solver at all.
+2. exact stochastic simulation of the first time the cell density reaches the threshold
+   `x*`, with right-censored times regressed in the population scale `N`;
+3. exact stochastic simulation of the collapse time itself, i.e. the first arrival in
+   `R_off`, which includes every failed attempt.
 
-At the working cost `c = 0.36` the two routes agree within two standard errors at every
-common rate, and both exclude the eliminated-signal value.
+The threshold time of route 2 has its own barrier `DeltaV_thr(r) <= DeltaV(r)`. At the
+working cost `c = 0.36` the two coincide for `r >= 1`, but at `r = 0.5` a threshold point
+with high signal is 7.7 percent cheaper than the saddle. The collapse-time slopes of
+route 3 lie within two standard errors of `DeltaV(r)` at every simulated rate.
 
 ## The numbers
 
@@ -37,41 +44,73 @@ Keeping the signal explicit gives, at the production settings below:
 
 So `DeltaV(1)` exceeds `DeltaV_inf` by 55 percent, `DeltaV(r)` falls by a factor near
 1.98 across the rate grid, and `r (DeltaV(r) - DeltaV_inf)` settles at `0.03553`,
-against the predicted coefficient `A = 0.03544`. Since the mean collapse time grows as
-`exp(N DeltaV(r))`, these differences are amplified exponentially in the population
-scale.
+against the predicted coefficient `A = 0.03544`. Under the metastable exit estimates
+discussed in the paper, the mean collapse time grows as `exp(N DeltaV(r))`, so these
+differences are amplified exponentially in the population scale.
+
+At `c = 0.36` and the rates of the stochastic campaigns (slopes with their regression
+errors in the last digits):
+
+    r                        0.5          1            2            4            8
+    threshold barrier        0.1131       0.0953       0.0791       0.0703       0.0658
+    threshold-time slope     0.1194(102)  0.1092(95)   0.0816(88)   0.0806(57)   0.0615(46)
+    collapse-time slope      0.1294(35)   0.0994(35)   0.0837(50)   0.0702(43)   0.0697(37)
+
+Started at the saddle, the probability of reaching `R_off` before returning near `U_on`
+falls from 0.63-0.64 at `N = 50` to 0.51-0.52 at `N = 3200`, at every rate.
 
 ## Layout
 
     src/ldp_action.py            reaction network, Lagrangian by Newton, minimum action
     src/ldp_crossover_sweep.py   the barrier sweep over (c, r); writes crossover_barriers.json
-    src/ldp_crossover_exit.py    SSA with censored exit times; writes crossover_exit_times.json
+    src/ldp_crossover_exit.py    SSA with censored threshold times; writes crossover_exit_times.json
     src/paths.py                 where stored measurements go
-    src/generate_optimal_paths.py   representative collapse paths for the landscape figure
+    src/generate_optimal_paths.py   representative minimum-action paths for the landscape figure
     src/verify_hessian.py        the action solver against the Gaussian regime
     src/verify_exit_multiseed.py five-seed diagnostics for the exit-time estimator
-    src/fig_proceedings_numerics.py  the four figures of the paper
-    data/                        stored output of the runs that are too slow to repeat
+    src/fig_proceedings_numerics.py  three figures of the paper (landscape, action, exit times)
+
+    src/basins/                  Hypothesis H at all costs, separatrices, threshold-line
+                                 classification, and the phase portrait fig_nullclines.pdf
+    src/threshold_endpoint/      the threshold barrier: profile over the terminal signal,
+                                 refinement, verification, and an independent solver
+    src/collapse_time/           C simulator recording threshold and collapse times along each
+                                 trajectory, campaign runners, validation and analysis
+    src/committor/               C simulator and runner for the success probability near the saddle
+
+    data/                        stored output of the runs that are too slow to repeat;
+                                 data/basins, data/threshold_endpoint, data/collapse_time and
+                                 data/committor hold the output of the four folders above
 
 Everything in `data/` is regenerable by the scripts above. It is tracked because the
-stochastic sweeps take hours and the figures should not require them.
+stochastic sweeps take hours and the figures should not require them. Two kinds of file
+are not tracked because they regenerate in seconds to minutes: the manifold traces
+`data/basins/*.npy` and the per-trajectory committor samples `data/committor/raw/`.
 
 ## Requirements
 
-Python 3.9 or later, with `numpy`, `scipy` and `matplotlib`. The results quoted here
-were produced with Python 3.9.6, numpy 1.26.3, scipy 1.12.0 and matplotlib 3.8.2. Run
-the scripts from the repository root:
+Python 3.9 or later, with `numpy`, `scipy` and `matplotlib`, and a C compiler for the two
+simulators. The results quoted here were produced with Python 3.9.6, numpy 1.26.3, scipy
+1.12.0 and matplotlib 3.8.2, except for `src/basins/` and
+`src/threshold_endpoint/independent_check/`, which were run with Python 3.13.1, numpy
+2.5.2, scipy 1.18.0 and matplotlib 3.11.1. With the older environment,
+`fig_nullclines.pdf` has the same content but slightly different legend and line
+rendering, and `data/basins/results.json` differs only in ODE entry times (relative
+differences below 1e-4) and timings; every classification is unchanged.
 
-    python src/fig_proceedings_numerics.py
+Compile the simulators once:
+
+    cc -O3 -march=native -o src/collapse_time/ssa_offtarget src/collapse_time/ssa_offtarget.c -lm
+    cc -O3 -march=native -o src/committor/ssa_commit src/committor/ssa_commit.c -lm
 
 ## Reproducing the paper
 
-The figures read only the stored data and take a few seconds:
+The figures read only stored data and take a few seconds:
 
-    python src/fig_proceedings_numerics.py
+    python src/fig_proceedings_numerics.py      # fig_landscape, fig_action_results, fig_exit_scaling
+    cd src/basins && python separatrix.py && python fig_nullclines.py   # fig_nullclines, about 20 s
 
-This writes `fig_nullclines.pdf`, `fig_landscape.pdf`, `fig_action_results.pdf` and
-`fig_exit_scaling.pdf` to the repository root.
+These write the PDFs to the repository root.
 
 Three checks are cheap enough to run directly. The first calibrates the action solver
 against the closed-form quadrature in the eliminated-signal model, where the answer is
@@ -100,9 +139,10 @@ iterations, over `r` in `{0.5, 1, 2, 4, 8, 16, 32, 64}` and `c` in
 Notice that at the default 600 iterations L-BFGS stops on the cap and returns
 `0.128412` at `r = 0.5` instead of `0.122477`, i.e. the budget itself moves the answer
 upward by five percent, which looks exactly like a discretisation error and is not one.
+Rerunning the sweep reproduces the stored barriers to about 4e-8, not bit for bit.
 
-The exit-time route is the expensive one. Each pair `(r, N)` gets its own random stream,
-seeded reproducibly from the triple `(20260812, 100r, N)`:
+The threshold-time route is the expensive one. Each pair `(r, N)` gets its own random
+stream, seeded reproducibly from the triple `(20260812, 100r, N)`:
 
     python src/ldp_crossover_exit.py --quick    # a reduced grid, for a sanity check
     python src/ldp_crossover_exit.py --write    # the full sweep, hours
@@ -110,12 +150,54 @@ seeded reproducibly from the triple `(20260812, 100r, N)`:
 
     python src/verify_exit_multiseed.py         # five seeds at r = 0.5, N = 60
 
+### The basins and the threshold line
+
+    cd src/basins
+    python separatrix.py         # H at five costs, R_off conditions, separatrices, classification
+    python action_path_r8.py     # the r = 8 minimum-action path drawn in fig_nullclines
+    python tables.py             # prints the tables of data/basins/results.json
+
+### The threshold barrier
+
+    cd src/threshold_endpoint
+    python run_profile.py        # the profile w -> V((x*, w)), about 30 minutes
+    python run_refine.py         # refinement near the minima
+    python run_verify.py         # horizon, mesh and seed checks of the r = 0.5 candidate
+    python plot_profile.py       # fig_threshold_profile.pdf
+    cd independent_check && python indep_mam.py 0.5 && python detour.py
+
+`independent_check/` is a separately written solver (explicit Lagrangian, analytic
+gradient) that shares no code with `ldp_action.py`. It reproduces the r = 0.5 threshold
+and saddle actions, 0.1130794 and 0.1224781, and gives 0.033455 for the action from the
+threshold candidate to the saddle.
+
+### The collapse time
+
+    cd src/collapse_time
+    python validate.py           # simulator validation against the stored threshold data
+    python run_pilot.py          # pilot grid (r = 0.5, 1, 8)
+    python run_full.py           # full grid; points already in data/collapse_time/raw are skipped
+    python analyze.py            # fits, bootstrap, recovery statistics, fig_offtarget_full.pdf
+
+The full grid took about 1.3e5 core-seconds. Its horizon is `30 exp(N DeltaV_num)`,
+since the mean collapse time is 3 to 4 times `exp(N DeltaV_num)` at these sizes. From the
+stored raw data, `analyze.py` reproduces `fit_results.json` exactly.
+
+### The success probability near the saddle
+
+    cd src/committor
+    python run_committor.py --workers 10 --nrep 20000 --nchunk 20   # about 4 minutes
+
+This reproduces `data/committor/results.json` exactly, apart from timings.
+
 ## What this does not settle
 
-The barrier is computed for one network at one working cost, and the exit-time route
-covers `r` in `{0.5, 1, 2, 4, 8}` only, since the horizon needed at larger `r` grows
-with the barrier. The prefactor `C(N)` in `E[tau_N] = C(N) exp(N DeltaV(r))` is not
-computed: it is absorbed into a regression on `N` and `log N`, with the uncertainty
-scaled to unit reduced chi-square, and `src/ldp_crossover_exit.py --verify` is what
-licenses that scaling. The minimizer is local, and no claim is made that it is globally
-reliable in higher dimensions.
+The barrier is computed for one network at one working cost, and the stochastic routes
+cover `r` in `{0.5, 1, 2, 4, 8}` only, since the horizon needed at larger `r` grows with
+the barrier. The prefactor `C(N)` in `E[tau_N] = C(N) exp(N DeltaV)` is not computed: it
+is absorbed into a regression on `N` and `log N`, with the uncertainty scaled to unit
+reduced chi-square, and `src/ldp_crossover_exit.py --verify` is what licenses that
+scaling. The relation between the action barrier and the mean collapse time relies on
+metastable exit estimates for the jump process that the paper states but does not prove;
+the stochastic results support it over the simulated sizes only. The minimizer is local,
+and no claim is made that it is globally reliable in higher dimensions.
