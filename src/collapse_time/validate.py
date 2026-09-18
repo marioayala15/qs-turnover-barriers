@@ -1,4 +1,4 @@
-"""Simulator validation for the collapse-time campaign.
+"""Simulator validation for the extinction-time campaign.
 
 (1) A numpy port of the existing vectorised SSA (ldp_crossover_exit.first_passage,
     re-typed here, using net_wellmixed_explicit from src/ldp_action.py) with the

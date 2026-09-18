@@ -3,7 +3,7 @@ The crossover barrier measured from particle-system exit times.
 
 Everything else supporting DeltaV(r) shares one piece of machinery: the
 action, its minimisers, and the boundary-layer ansatz.  This module shares
-none of it.  The barrier also sets the mean time to collapse of the jump
+none of it.  The barrier also sets the mean extinction time of the jump
 process itself,
 
     E[tau_N] = C(N) exp(N DeltaV(r)),

@@ -1,4 +1,4 @@
-"""Run the collapse-time pilot (r = 0.5, 1, 8 at the smaller sizes): full trajectories from the existing initial state
+"""Run the extinction-time pilot (r = 0.5, 1, 8 at the smaller sizes): full trajectories from the existing initial state
 to the small off rectangle (recording threshold entry, large-rectangle entry,
 extinction and attempts on the way), in parallel chunks.
 

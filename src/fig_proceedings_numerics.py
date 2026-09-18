@@ -90,7 +90,7 @@ def barrier_landscape_figure(cost=0.36):
 
     grid = np.linspace(0.33, 1.45, 400)
     dv_inf = float(V(x_star))
-    dv_r1 = 0.09526  # finite-turnover barrier at r = 1, from crossover_barriers.json
+    dv_r1 = 0.09526  # finite-r barrier at r = 1, from crossover_barriers.json
 
     fig, ax = plt.subplots(figsize=(3.4, 2.35))
     ax.plot(grid, V(grid), color=BLUE, linewidth=1.5, zorder=3)

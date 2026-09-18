@@ -1,4 +1,4 @@
-"""Minimum-action collapse paths at four turnover rates.
+"""Minimum-action paths from U_on to the saddle at four values of r.
 
 Writes ``data/optimal_paths.json``, from which the landscape figure of
 Section 5 is drawn.

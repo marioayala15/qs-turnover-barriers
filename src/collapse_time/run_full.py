@@ -1,4 +1,4 @@
-"""Full collapse-time campaign: extend the pilot to the complete grid of the
+"""Full extinction-time campaign: extend the pilot to the complete grid of the
 existing threshold campaign (r = 0.5, 1, 2, 4, 8 at c = 0.36).
 
 Reuses run_pilot.py unchanged: points already in data/collapse_time/raw are skipped, so the 20

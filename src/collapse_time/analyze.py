@@ -1,4 +1,4 @@
-"""Analysis of the collapse-time campaign.
+"""Analysis of the extinction-time campaign.
 
 For each r: event-specific censored exponential MLE of E[tau] for
   thr   = first entry into {X <= x* N}

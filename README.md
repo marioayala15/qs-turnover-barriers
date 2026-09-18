@@ -1,33 +1,33 @@
-# Turnover-dependent collapse barriers in a quorum-sensing reaction network
+# Extinction barriers in a quorum-sensing reaction network
 
 Code and data for
 
-> M. Ayala and J. Zimmer, *Computing Turnover-Dependent Rare-Event Barriers in a
-> Quorum-Sensing Reaction Network*.
+> M. Ayala and J. Zimmer, *Computing Extinction Barriers in a Quorum-Sensing Reaction
+> Network*.
 
 A four-channel cell-signal reaction network couples a cell density `x` to a signal
 density `w` through cell division, cell death, signal production and signal removal.
-Multiplying signal production and removal by a common turnover factor `r` leaves every
-deterministic equilibrium and its stability type unchanged, hence any effect of `r` on
-the rare-event barrier is invisible in the mean-field ODE. The barrier is nevertheless
-`r`-dependent, and this repository computes it.
+Multiplying signal production and removal by a common factor `r` leaves every
+deterministic equilibrium and its stability type unchanged. The rare-event barrier
+nevertheless depends on `r`, and this repository computes it.
 
-Collapse means the first arrival of the process in a fixed neighbourhood
+The extinction time is the first arrival of the process in a fixed neighbourhood
 `R_off = [0, 0.3] x [0, 0.7]` of the extinction state, which lies in its deterministic
-basin. The quasipotential barrier `DeltaV(r)` is the least action from the cooperative
-state `U_on` to the saddle `U*`; the paper proves that it is also the least interior
+basin. Entry into `R_off` is not yet cell extinction, `X = 0`, and recovery remains
+possible. The quasipotential barrier `DeltaV(r)` is the least action from the cooperative
+state `U_on` to the saddle `U_*`; the paper proves that it is also the least interior
 action needed to reach `R_off`. It is computed and tested in three ways:
 
 1. minimization of the Freidlin-Wentzell action, with the signal kept as a fluctuating
    coordinate rather than slaved to `wbar(x) = aC x / kappa`;
 2. exact stochastic simulation of the first time the cell density reaches the threshold
    `x*`, with right-censored times regressed in the population scale `N`;
-3. exact stochastic simulation of the collapse time itself, i.e. the first arrival in
+3. exact stochastic simulation of the extinction time itself, i.e. the first arrival in
    `R_off`, which includes every failed attempt.
 
 The threshold time of route 2 has its own barrier `DeltaV_thr(r) <= DeltaV(r)`. At the
 working cost `c = 0.36` the two coincide for `r >= 1`, but at `r = 0.5` a threshold point
-with high signal is 7.7 percent cheaper than the saddle. The collapse-time slopes of
+with high signal is 7.7 percent cheaper than the saddle. The extinction-time slopes of
 route 3 lie within two standard errors of `DeltaV(r)` at every simulated rate.
 
 ## The numbers
@@ -45,7 +45,7 @@ Keeping the signal explicit gives, at the production settings below:
 So `DeltaV(1)` exceeds `DeltaV_inf` by 55 percent, `DeltaV(r)` falls by a factor near
 1.98 across the rate grid, and `r (DeltaV(r) - DeltaV_inf)` settles at `0.03553`,
 against the predicted coefficient `A = 0.03544`. Under the metastable exit estimates
-discussed in the paper, the mean collapse time grows as `exp(N DeltaV(r))`, so these
+discussed in the paper, the mean extinction time grows as `exp(N DeltaV(r))`, so these
 differences are amplified exponentially in the population scale.
 
 At `c = 0.36` and the rates of the stochastic campaigns (slopes with their regression
@@ -54,7 +54,7 @@ errors in the last digits):
     r                        0.5          1            2            4            8
     threshold barrier        0.1131       0.0953       0.0791       0.0703       0.0658
     threshold-time slope     0.1194(102)  0.1092(95)   0.0816(88)   0.0806(57)   0.0615(46)
-    collapse-time slope      0.1294(35)   0.0994(35)   0.0837(50)   0.0702(43)   0.0697(37)
+    extinction-time slope    0.1294(35)   0.0994(35)   0.0837(50)   0.0702(43)   0.0697(37)
 
 Started at the saddle, the probability of reaching `R_off` before returning near `U_on`
 falls from 0.63-0.64 at `N = 50` to 0.51-0.52 at `N = 3200`, at every rate.
@@ -74,7 +74,7 @@ falls from 0.63-0.64 at `N = 50` to 0.51-0.52 at `N = 3200`, at every rate.
                                  classification, and the phase portrait fig_nullclines.pdf
     src/threshold_endpoint/      the threshold barrier: profile over the terminal signal,
                                  refinement, verification, and an independent solver
-    src/collapse_time/           C simulator recording threshold and collapse times along each
+    src/collapse_time/           C simulator recording threshold and extinction times along each
                                  trajectory, campaign runners, validation and analysis
     src/committor/               C simulator and runner for the success probability near the saddle
 
@@ -171,7 +171,7 @@ gradient) that shares no code with `ldp_action.py`. It reproduces the r = 0.5 th
 and saddle actions, 0.1130794 and 0.1224781, and gives 0.033455 for the action from the
 threshold candidate to the saddle.
 
-### The collapse time
+### The extinction time
 
     cd src/collapse_time
     python validate.py           # simulator validation against the stored threshold data
@@ -180,7 +180,7 @@ threshold candidate to the saddle.
     python analyze.py            # fits, bootstrap, recovery statistics, fig_offtarget_full.pdf
 
 The full grid took about 1.3e5 core-seconds. Its horizon is `30 exp(N DeltaV_num)`,
-since the mean collapse time is 3 to 4 times `exp(N DeltaV_num)` at these sizes. From the
+since the mean extinction time is 3 to 4 times `exp(N DeltaV_num)` at these sizes. From the
 stored raw data, `analyze.py` reproduces `fit_results.json` exactly.
 
 ### The success probability near the saddle
@@ -197,7 +197,7 @@ cover `r` in `{0.5, 1, 2, 4, 8}` only, since the horizon needed at larger `r` gr
 the barrier. The prefactor `C(N)` in `E[tau_N] = C(N) exp(N DeltaV)` is not computed: it
 is absorbed into a regression on `N` and `log N`, with the uncertainty scaled to unit
 reduced chi-square, and `src/ldp_crossover_exit.py --verify` is what licenses that
-scaling. The relation between the action barrier and the mean collapse time relies on
+scaling. The relation between the action barrier and the mean extinction time relies on
 metastable exit estimates for the jump process that the paper states but does not prove;
 the stochastic results support it over the simulated sizes only. The minimizer is local,
 and no claim is made that it is globally reliable in higher dimensions.

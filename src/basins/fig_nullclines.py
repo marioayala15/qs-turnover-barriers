@@ -1,5 +1,5 @@
 """Phase portrait of the paper (fig_nullclines.pdf): nullclines, separatrices at
-r = 0.5 and 8, the threshold line, the collapse target R_off, minimum-action and
+r = 0.5 and 8, the threshold line, the extinction target R_off, minimum-action and
 relaxation paths.
 
 Needs the .npy manifolds written by src/basins/separatrix.py and

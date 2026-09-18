@@ -1,4 +1,4 @@
-"""Shared definitions for the collapse-time campaign (threshold and off-target times).
+"""Shared definitions for the extinction-time campaign (threshold and off-target times).
 
 Parameters and rates follow the parameter table of the paper and
 ``net_wellmixed_explicit`` in ``src/ldp_action.py`` (used for cross-checks).

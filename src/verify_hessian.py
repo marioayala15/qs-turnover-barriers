@@ -15,7 +15,7 @@ form by a 2x2 Lyapunov solve, with no path optimisation involved. This gives a
 check on the minimiser that shares nothing with the eliminated-signal
 calibration or with the exit-time experiment.
 
-For each turnover rate we minimise the action from U_on to U_on + eps*z over a
+For each value of r we minimise the action from U_on to U_on + eps*z over a
 set of unit directions z, at two values of eps, Richardson-extrapolate the
 resulting quadratic forms to eps -> 0, and recover H by least squares. The
 recovered matrix is compared entrywise with Sigma^{-1}.

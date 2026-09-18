@@ -1,8 +1,8 @@
 """
-The finite-turnover collapse barriers behind the crossover figure.
+The finite-r extinction barriers behind the crossover figure.
 
 `fig_proceedings_numerics.py` plots two things: the barrier DeltaV(r) at the
-working cost across eight turnover rates, and the coefficient A(c) at five
+working cost across eight values of r, and the coefficient A(c) at five
 costs.  This module is the driver behind both: it computes them from
 `ldp_action.mam_action` and writes them to `data/crossover_barriers.json`, so
 the numbers quoted in the paper have a script behind them.
