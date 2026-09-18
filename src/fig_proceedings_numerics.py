@@ -107,11 +107,11 @@ def barrier_landscape_figure(cost=0.36):
     ax.plot(x_on, 0.0, "o", color="0.1", markersize=5, zorder=5)
     ax.plot(x_star, dv_inf, "o", markerfacecolor="white", markeredgecolor="0.1",
             markersize=5, zorder=5)
-    ax.annotate(r"$x_{\mathrm{on}}$", (x_on, 0.0), fontsize=8,
+    ax.annotate(r"$U_{\mathrm{on}}$", (x_on, 0.0), fontsize=8,
                 xytext=(4, -10), textcoords="offset points")
-    ax.annotate(r"$x^\ast$", (x_star, dv_inf), fontsize=8,
+    ax.annotate(r"$U_\ast$", (x_star, dv_inf), fontsize=8,
                 xytext=(5, 3), textcoords="offset points")
-    ax.annotate("collapse", xy=(0.36, 0.013), xytext=(0.50, 0.013),
+    ax.annotate("extinction", xy=(0.36, 0.013), xytext=(0.50, 0.013),
                 fontsize=7.5, color="0.35", va="center", ha="left",
                 arrowprops={"arrowstyle": "->", "color": "0.55", "lw": 0.9})
 
@@ -173,7 +173,7 @@ def action_figure():
     axes[1].axhline(eliminated, color="0.45", linestyle="--", label=r"$\Delta V_\infty$")
     axes[1].plot(r, barrier, "o", color=BLUE, markersize=3.8, label="minimum action")
     axes[1].set_xscale("log")
-    axes[1].set_xlabel(r"turnover factor $r$")
+    axes[1].set_xlabel(r"signal speed factor $r$")
     axes[1].set_ylabel(r"barrier $\Delta V$")
     axes[1].set_xlim(0.30, 110.0)
     axes[1].legend(loc="upper right", fontsize=6.2, framealpha=0.95)
@@ -214,7 +214,7 @@ def action_figure():
         )
     axes[2].axvspan(4.0, 80.0, color="0.93", zorder=0)
     axes[2].set_xscale("log")
-    axes[2].set_xlabel(r"turnover factor $r$")
+    axes[2].set_xlabel(r"signal speed factor $r$")
     axes[2].set_ylabel(r"$r[\Delta V(r)-\Delta V_\infty]$")
     axes[2].set_xlim(0.42, 700.0)
 
