@@ -15,8 +15,9 @@ The extinction time is the first arrival of the process in a fixed neighbourhood
 `R_off = [0, 0.3] x [0, 0.7]` of the extinction state, which lies in its deterministic
 basin. Entry into `R_off` is not yet cell extinction, `X = 0`, and recovery remains
 possible. The quasipotential barrier `DeltaV(r)` is the least action from the cooperative
-state `U_on` to the saddle `U_*`; the paper proves that it is also the least interior
-action needed to reach `R_off`. It is computed and tested in three ways:
+state `U_on` to the saddle `U_*`; by a standard Freidlin-Wentzell argument, which the
+paper states without proof, it is also the least interior action needed to reach
+`R_off`. It is computed and tested in three ways:
 
 1. minimization of the Freidlin-Wentzell action, with the signal kept as a fluctuating
    coordinate rather than slaved to `wbar(x) = aC x / kappa`;
@@ -70,7 +71,7 @@ falls from 0.63-0.64 at `N = 50` to 0.51-0.52 at `N = 3200`, at every rate.
     src/verify_exit_multiseed.py five-seed diagnostics for the exit-time estimator
     src/fig_proceedings_numerics.py  three figures of the paper (landscape, action, exit times)
 
-    src/basins/                  Hypothesis H at all costs, separatrices, threshold-line
+    src/basins/                  equilibria at all costs, separatrices, threshold-line
                                  classification, and the phase portrait fig_nullclines.pdf
     src/threshold_endpoint/      the threshold barrier: profile over the terminal signal,
                                  refinement, verification, and an independent solver
@@ -98,6 +99,11 @@ simulators. The results quoted here were produced with Python 3.9.6, numpy 1.26.
 rendering, and `data/basins/results.json` differs only in ODE entry times (relative
 differences below 1e-4) and timings; every classification is unchanged.
 
+The figure files in the submitted paper were rendered with matplotlib 3.11.1, except
+`fig_exit_scaling.pdf` (3.8.2). With matplotlib 3.8.2, `fig_landscape.pdf` and
+`fig_action_results.pdf` have the same curves, colours and labels, with slightly different
+tick placement and text rendering.
+
 Compile the simulators once:
 
     cc -O3 -march=native -o src/collapse_time/ssa_offtarget src/collapse_time/ssa_offtarget.c -lm
@@ -117,6 +123,13 @@ against the closed-form quadrature in the eliminated-signal model, where the ans
 known:
 
     python src/ldp_action.py                    # agrees to 0.07 percent at c = 0.36
+
+This self-test is quick and coarse (500 nodes, horizons up to 80, the default iteration
+budget). At the production settings `T = 40`, `M = 2000` and an outer budget of 60000
+iterations, the same solver gives `0.0613801` against the quadrature value `0.0613795`,
+i.e. about 0.001 percent, which is the calibration quoted in the paper:
+
+    cd src && python -c "import ldp_action as L; print(L.mam_action(L.net_1d_slaved(0.36), [1.2967495269504323], [0.5588112173244356], T=40.0, K=2000, maxiter=60000)['S'])"
 
 The second checks the solver against the Gaussian regime near the stable state, where
 the quasipotential Hessian must satisfy `H J + J' H + H D H = 0` and is therefore the
@@ -153,7 +166,8 @@ stream, seeded reproducibly from the triple `(20260812, 100r, N)`:
 ### The basins and the threshold line
 
     cd src/basins
-    python separatrix.py         # H at five costs, R_off conditions, separatrices, classification
+    python separatrix.py         # equilibria at five costs, R_off conditions, separatrices,
+                                 # classification
     python action_path_r8.py     # the r = 8 minimum-action path drawn in fig_nullclines
     python tables.py             # prints the tables of data/basins/results.json
 
@@ -199,5 +213,15 @@ is absorbed into a regression on `N` and `log N`, with the uncertainty scaled to
 reduced chi-square, and `src/ldp_crossover_exit.py --verify` is what licenses that
 scaling. The relation between the action barrier and the mean extinction time relies on
 metastable exit estimates for the jump process that the paper states but does not prove;
-the stochastic results support it over the simulated sizes only. The minimizer is local,
-and no claim is made that it is globally reliable in higher dimensions.
+the stochastic results support it over the simulated sizes only. The identification of the
+saddle barrier with the least action needed to reach `R_off` is likewise stated, not
+proved. The minimizer is local, and no claim is made that it is globally reliable in
+higher dimensions.
+
+## Use of AI assistance
+
+The code, the numerical checks and this README were developed with the help of Claude
+(Anthropic), an AI assistant, working with the authors. It wrote and tested much of the
+code, ran the calibration and validation checks, and cross-checked the numbers reported in
+the paper against the stored data. The authors specified the computations, reviewed the
+code and results, and take full responsibility for them.
